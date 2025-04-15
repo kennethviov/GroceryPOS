@@ -1,0 +1,4 @@
+Tomato,10,22
+Kamunggay,10,9
+Onion,10,5
+Garlic,10,1

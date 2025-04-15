@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MudBlazor.8.2.0\build\MudBlazor.props" Condition="Exists('..\packages\MudBlazor.8.2.0\build\MudBlazor.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C33E700-EB8D-4163-B073-53ED8E6BD3E0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GroceryPOS</RootNamespace>
+    <AssemblyName>GroceryPOS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuoreUI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CuoreUI.Winforms.2025.2.3.2\lib\netstandard2.0\CuoreUI.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.LiveShare, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.LiveShare.1.1.57\lib\net461\Microsoft.VisualStudio.LiveShare.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\NumericStepper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\NumericStepper.Designer.cs">
+      <DependentUpon>NumericStepper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductInfos.Designer.cs">
+      <DependentUpon>ProductInfos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ProductInCart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ProductInCart.Designer.cs">
+      <DependentUpon>ProductInCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SearchBar.Designer.cs">
+      <DependentUpon>SearchBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UnitInReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UnitInReceipt.Designer.cs">
+      <DependentUpon>UnitInReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UserBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UserBar.Designer.cs">
+      <DependentUpon>UserBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrame.Designer.cs">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ProductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ProductCard.Designer.cs">
+      <DependentUpon>ProductCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\productStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\productStock.Designer.cs">
+      <DependentUpon>productStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="signinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="signinForm.Designer.cs">
+      <DependentUpon>signinForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Components\NumericStepper.resx">
+      <DependentUpon>NumericStepper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductInfos.resx">
+      <DependentUpon>ProductInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ProductInCart.resx">
+      <DependentUpon>ProductInCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SearchBar.resx">
+      <DependentUpon>SearchBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UnitInReceipt.resx">
+      <DependentUpon>UnitInReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserBar.resx">
+      <DependentUpon>UserBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrame.resx">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ProductCard.resx">
+      <DependentUpon>ProductCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\productStock.resx">
+      <DependentUpon>productStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signinForm.resx">
+      <DependentUpon>signinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charmander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4ff58db7-dee7-47a3-bc3b-91d1efda1344.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\files\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c2 green.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c2 red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fanta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fanta 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprite 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coke 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gatorade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1l water.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\500ml water.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drumstick.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicken wings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whole chicken.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicken thigh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A5 wagyu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beef flank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pork belly.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ribeye.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pork ribs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kiwi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mangosteen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avocado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueberry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strawberry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\watermelon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pineapple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grapes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green onion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\potato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eggplant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell pepper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lettuce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ginger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\garlic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kamunggay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tomato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\broken-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lucky day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-small-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49681290_9185570.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Your paragraph text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Your paragraph text1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquor %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tequila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redhorse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vodka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bacardi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grocery-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MudBlazor.8.2.0\build\MudBlazor.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MudBlazor.8.2.0\build\MudBlazor.props'))" />
+    <Error Condition="!Exists('..\packages\MudBlazor.8.2.0\build\MudBlazor.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MudBlazor.8.2.0\build\MudBlazor.targets'))" />
+  </Target>
+  <Import Project="..\packages\MudBlazor.8.2.0\build\MudBlazor.targets" Condition="Exists('..\packages\MudBlazor.8.2.0\build\MudBlazor.targets')" />
+</Project>
