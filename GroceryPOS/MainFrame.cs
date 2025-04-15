@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using GroceryPOS.Components;
 using GroceryPOS.Screens;
 using GroceryStroreDiscountGUI.Components;
+using Microsoft.Data.SqlClient;
 
 namespace GroceryPOS
 {
@@ -40,20 +42,58 @@ namespace GroceryPOS
 
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
-            productImage = Image.FromFile("C:\\Users\\kenne\\source\\repos\\GroceryPOS1.1\\GroceryPOS1.1\\GroceryPOS1\\GroceryPOS\\GroceryPOS\\Resources\\broken-image.png");
-            
-            foreach (Control control in flowLayoutPanel1.Controls)
-            {
-                if (control is ProductCard product)
-                {
-                    products.Add(product);
-                    product.Click += ClickHandler;
-                    product.MouseEnter += ProductCard_MouseEnter;
-                    product.MouseLeave += ProductCard_MouseLeave;
 
-                    product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
+            LoadItemsFromDatabase();
+            //productImage = Image.FromFile("C:\\Users\\kenne\\source\\repos\\GroceryPOS1.1\\GroceryPOS1.1\\GroceryPOS1\\GroceryPOS\\GroceryPOS\\Resources\\broken-image.png");
+
+            //foreach (Control control in flowLayoutPanel1.Controls)
+            //{
+            //    if (control is ProductCard product)
+            //    {
+            //        products.Add(product);
+            //        product.Click += ClickHandler;
+            //        product.MouseEnter += ProductCard_MouseEnter;
+            //        product.MouseLeave += ProductCard_MouseLeave;
+
+            //        product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
+            //    }
+            //} 
+        }
+
+        private void LoadItemsFromDatabase()
+        {
+            string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; Database = protoDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False";
+            string query = "SELECT\r\n    I.item_id,\r\n    I.item_name,\r\n    I.item_price,\r\n    I.item_unit,\r\n    I.item_stocks,\r\n    C.category_name AS category_description\r\nFROM Items I\r\nJOIN Inventory C ON I.category_id = C.category_id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection)) 
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ProductCard product = new ProductCard
+                            {
+                                ProductImage = Image.FromFile("C:\\Users\\kenne\\source\\repos\\GroceryPOS1.1\\GroceryPOS1.1\\GroceryPOS1\\GroceryPOS\\GroceryPOS\\Resources\\broken-image.png"),
+                                ProducTitle = reader["item_name"].ToString(),
+                                ProductPrice = Convert.ToDouble(reader["item_price"]),
+                                SoldBy = reader["item_unit"].ToString(),
+                                Stock = (int)reader["item_stocks"],
+                                Category = reader["category_description"].ToString(),
+                                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15))
+                            };
+
+                            products.Add(product);
+                            flowLayoutPanel1.Controls.Add(product); // Ensure UI updates
+                            product.Click += ClickHandler;
+                            product.MouseEnter += ProductCard_MouseEnter;
+                            product.MouseLeave += ProductCard_MouseLeave;
+                        }
+                    }
                 }
-            } 
+            }
         }
 
         //
