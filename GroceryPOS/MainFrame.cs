@@ -44,20 +44,6 @@ namespace GroceryPOS
             productInfo = new ProductInfos();
 
             LoadItemsFromDatabase();
-            //productImage = Image.FromFile("C:\\Users\\kenne\\source\\repos\\GroceryPOS1.1\\GroceryPOS1.1\\GroceryPOS1\\GroceryPOS\\GroceryPOS\\Resources\\broken-image.png");
-
-            //foreach (Control control in flowLayoutPanel1.Controls)
-            //{
-            //    if (control is ProductCard product)
-            //    {
-            //        products.Add(product);
-            //        product.Click += ClickHandler;
-            //        product.MouseEnter += ProductCard_MouseEnter;
-            //        product.MouseLeave += ProductCard_MouseLeave;
-
-            //        product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
-            //    }
-            //} 
         }
 
         private void LoadItemsFromDatabase()
@@ -81,8 +67,7 @@ namespace GroceryPOS
                                 ProductPrice = Convert.ToDouble(reader["item_price"]),
                                 SoldBy = reader["item_unit"].ToString(),
                                 Stock = (int)reader["item_stocks"],
-                                Category = reader["category_description"].ToString(),
-                                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15))
+                                Category = reader["category_description"].ToString()
                             };
 
                             products.Add(product);
@@ -90,89 +75,18 @@ namespace GroceryPOS
                             product.Click += ClickHandler;
                             product.MouseEnter += ProductCard_MouseEnter;
                             product.MouseLeave += ProductCard_MouseLeave;
+
+                            product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
                         }
                     }
                 }
             }
-        }
-
-        //
-        //
-        // Window Aesthetics
-        //
-        //
-        private void RegionLoad()
-        {
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-
-            dockertop.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, dockertop.Width, dockertop.Height, 15, 15));
-            button6.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, button6.Width, button6.Height, 15, 15));
-            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 15, 15));
-            panel3.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 15, 15));
-            flowLayoutPanel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel2.Width, flowLayoutPanel2.Height, 15, 15));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button1.Height;
-            SidePanel.Top = button1.Top;
-
-            flowLayoutPanel1.Controls.Clear();
-            foreach (var product in products)
-            {
-                flowLayoutPanel1.Controls.Add(product);
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button2.Height;
-            SidePanel.Top = button2.Top;
-            
-            DisplayCategory("vegetable");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button3.Height;
-            SidePanel.Top = button3.Top;
-
-            DisplayCategory("meat");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button4.Height;
-            SidePanel.Top = button4.Top;
-
-            DisplayCategory("fruit");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button5.Height;
-            SidePanel.Top = button5.Top;
-
-            DisplayCategory("drink");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button7.Height;
-            SidePanel.Top = button7.Top;
-
-            DisplayCategory("liquor");
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        }      
 
 
         //
         //
-        // Product Card Events
+        // Product Card Events or Mouse Events
         //
         //
         private void ClickHandler(object sender, EventArgs e)
@@ -216,7 +130,6 @@ namespace GroceryPOS
                 productInfo.ProductTitle = productCard.ProducTitle;
                 productInfo.ProductPrice = productCard.ProductPrice;
                 productInfo.SoldBy = productCard.SoldBy;
-                productInfo.Description = productCard.Descrition;
                 productInfo.Stock = productCard.Stock;
 
                 productInfo.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, productInfo.Width, productInfo.Height, 15, 15));
@@ -251,19 +164,101 @@ namespace GroceryPOS
             }
         }
 
+        //
+        // window dragging
+        //
+        private bool dragging = false;
+        private Point startPoint = new Point(0, 0);
+
         private void mouse_Down(object sender, MouseEventArgs e)
         {
-            mouseLocation = new Point(-e.X, -e.Y);
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
         }
 
         private void mouse_Move(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (dragging)
             {
-                Point mousePose = Control.MousePosition;
-                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
-                Location = mousePose;
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
             }
+        }
+
+        private void dockertop_MouseUp(object sender, MouseEventArgs e) { dragging = false; }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button1.Height;
+            SidePanel.Top = button1.Top;
+
+            flowLayoutPanel1.Controls.Clear();
+            foreach (var product in products)
+            {
+                flowLayoutPanel1.Controls.Add(product);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button2.Height;
+            SidePanel.Top = button2.Top;
+
+            DisplayCategory("vegetable");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button3.Height;
+            SidePanel.Top = button3.Top;
+
+            DisplayCategory("meat");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button4.Height;
+            SidePanel.Top = button4.Top;
+
+            DisplayCategory("fruit");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button5.Height;
+            SidePanel.Top = button5.Top;
+
+            DisplayCategory("drink");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button7.Height;
+            SidePanel.Top = button7.Top;
+
+            DisplayCategory("liquor");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        //
+        //
+        // UI
+        //
+        //
+        private void RegionLoad()
+        {
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+            dockertop.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, dockertop.Width, dockertop.Height, 15, 15));
+            button6.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, button6.Width, button6.Height, 15, 15));
+            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 15, 15));
+            panel3.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 15, 15));
+            flowLayoutPanel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel2.Width, flowLayoutPanel2.Height, 15, 15));
         }
 
         private void DisplayCategory(string category)
@@ -301,6 +296,7 @@ namespace GroceryPOS
 
             UpdateSummary();
         }
+
 
         //
         //
