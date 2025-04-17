@@ -10,6 +10,9 @@ using GroceryPOS.Components;
 using GroceryPOS.Screens;
 using GroceryStroreDiscountGUI.Components;
 using Microsoft.Data.SqlClient;
+using System.Resources;
+using System.Reflection;
+using System.Drawing;
 
 namespace GroceryPOS
 {
@@ -62,13 +65,14 @@ namespace GroceryPOS
                         {
                             ProductCard product = new ProductCard
                             {
-                                ProductImage = Image.FromFile("C:\\Users\\kenne\\source\\repos\\GroceryPOS1.1\\GroceryPOS1.1\\GroceryPOS1\\GroceryPOS\\GroceryPOS\\Resources\\broken-image.png"),
-                                ProducTitle = reader["item_name"].ToString(),
+                                ProductName = reader["item_name"].ToString(),
                                 ProductPrice = Convert.ToDouble(reader["item_price"]),
                                 SoldBy = reader["item_unit"].ToString(),
                                 Stock = (int)reader["item_stocks"],
-                                Category = reader["category_description"].ToString()
+                                Category = reader["category_description"].ToString().ToLower()
                             };
+
+                            ProductLoadImage(product); // Load image for the product
 
                             products.Add(product);
                             flowLayoutPanel1.Controls.Add(product); // Ensure UI updates
@@ -82,6 +86,26 @@ namespace GroceryPOS
                 }
             }
         }      
+        
+        private void ProductLoadImage(ProductCard product)
+        {
+            // Get the resource manager from your project's Resources
+            ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
+
+            // Attempt to load the image based on the product title
+            Image img = (Image)rm.GetObject(product.ProductName);
+
+            // Assign it if it's found
+            if (img != null)
+            {
+                product.ProductImage = img;
+            }
+            else
+            {
+                // fallback image or error handling
+                product.ProductImage = GroceryPOS.Properties.Resources.broken_image;
+            }
+        }
 
 
         //
@@ -93,9 +117,9 @@ namespace GroceryPOS
         {
             if (sender is ProductCard productCard)
             {
-                Console.WriteLine($"Product clicked: {productCard.ProducTitle}");
+                //Console.WriteLine($"Product clicked: {productCard.ProductName}");
 
-                var existingItem = cartItems.FirstOrDefault(item => item.Title == productCard.ProducTitle);
+                var existingItem = cartItems.FirstOrDefault(item => item.Title == productCard.ProductName);
                 if (existingItem != null)
                 {
                     // Increase quantity if item already exists
@@ -106,7 +130,7 @@ namespace GroceryPOS
                     // Create a new cart item if it doesn't exist
                     ProductInCart cartItem = new ProductInCart(this)
                     {
-                        Title = productCard.ProducTitle,
+                        Title = productCard.ProductName,
                         Price = productCard.ProductPrice,
                         ProductImage = productCard.ProductImage,
                         Quantity = 1
@@ -127,7 +151,7 @@ namespace GroceryPOS
             {
 
                 productInfo.ProductImage = productCard.ProductImage;
-                productInfo.ProductTitle = productCard.ProducTitle;
+                productInfo.ProductTitle = productCard.ProductName;
                 productInfo.ProductPrice = productCard.ProductPrice;
                 productInfo.SoldBy = productCard.SoldBy;
                 productInfo.Stock = productCard.Stock;
@@ -204,7 +228,7 @@ namespace GroceryPOS
             SidePanel.Height = button2.Height;
             SidePanel.Top = button2.Top;
 
-            DisplayCategory("vegetable");
+            DisplayCategory("vegetables");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -212,7 +236,7 @@ namespace GroceryPOS
             SidePanel.Height = button3.Height;
             SidePanel.Top = button3.Top;
 
-            DisplayCategory("meat");
+            DisplayCategory("meats");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -220,7 +244,7 @@ namespace GroceryPOS
             SidePanel.Height = button4.Height;
             SidePanel.Top = button4.Top;
 
-            DisplayCategory("fruit");
+            DisplayCategory("fruits");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -228,7 +252,7 @@ namespace GroceryPOS
             SidePanel.Height = button5.Height;
             SidePanel.Top = button5.Top;
 
-            DisplayCategory("drink");
+            DisplayCategory("drinks");
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -239,9 +263,26 @@ namespace GroceryPOS
             DisplayCategory("liquor");
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to clear your order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                flowLayoutPanel2.Controls.Clear();
+                cartItems.Clear();
+                UpdateSummary();
+            }
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
 

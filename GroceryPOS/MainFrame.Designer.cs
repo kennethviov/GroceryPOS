@@ -28,18 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrame));
             this.dockertop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -55,11 +49,22 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
-            this.userBar1 = new GroceryPOS.Components.UserBar();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dockertop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.userPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dockertop
@@ -68,7 +73,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.dockertop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dockertop.Controls.Add(this.userBar1);
             this.dockertop.Controls.Add(this.pictureBox1);
             this.dockertop.Controls.Add(this.label2);
             this.dockertop.Location = new System.Drawing.Point(12, 12);
@@ -78,17 +82,6 @@
             this.dockertop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouse_Down);
             this.dockertop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouse_Move);
             this.dockertop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dockertop_MouseUp);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.cross;
-            this.pictureBox1.Location = new System.Drawing.Point(1111, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -125,6 +118,186 @@
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 46);
             this.SidePanel.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Gray;
+            this.textBox1.Location = new System.Drawing.Point(223, 62);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(674, 1);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "  \r\n              Search\r\n\r\n";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(212, 62);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(652, 566);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.totalLabel);
+            this.panel3.Controls.Add(this.discountLabel);
+            this.panel3.Controls.Add(this.discountpLabel);
+            this.panel3.Controls.Add(this.subtotalLabel);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.button6);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(869, 457);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(297, 174);
+            this.panel3.TabIndex = 5;
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(73, 72);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(204, 27);
+            this.totalLabel.TabIndex = 19;
+            this.totalLabel.Text = "₱ 0.00";
+            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // discountLabel
+            // 
+            this.discountLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountLabel.Location = new System.Drawing.Point(177, 50);
+            this.discountLabel.Name = "discountLabel";
+            this.discountLabel.Size = new System.Drawing.Size(100, 16);
+            this.discountLabel.TabIndex = 18;
+            this.discountLabel.Text = "₱ 0.00";
+            this.discountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // discountpLabel
+            // 
+            this.discountpLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountpLabel.Location = new System.Drawing.Point(177, 32);
+            this.discountpLabel.Name = "discountpLabel";
+            this.discountpLabel.Size = new System.Drawing.Size(100, 16);
+            this.discountpLabel.TabIndex = 17;
+            this.discountpLabel.Text = "0%";
+            this.discountpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // subtotalLabel
+            // 
+            this.subtotalLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subtotalLabel.Location = new System.Drawing.Point(177, 16);
+            this.subtotalLabel.Name = "subtotalLabel";
+            this.subtotalLabel.Size = new System.Drawing.Size(100, 16);
+            this.subtotalLabel.TabIndex = 16;
+            this.subtotalLabel.Text = "₱ 0.00";
+            this.subtotalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(19, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Discount %";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Subtotal";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Discount";
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(22, 111);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(257, 49);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "Checkout";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 27);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Total";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 91);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 359);
+            this.flowLayoutPanel2.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(870, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Current Order";
+            // 
+            // userPanel
+            // 
+            this.userPanel.Controls.Add(this.pictureBox2);
+            this.userPanel.Location = new System.Drawing.Point(211, 62);
+            this.userPanel.Name = "userPanel";
+            this.userPanel.Size = new System.Drawing.Size(955, 569);
+            this.userPanel.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.xclose;
+            this.pictureBox1.Location = new System.Drawing.Point(1114, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.toolTip2.SetToolTip(this.pictureBox1, "Close App");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
@@ -246,178 +419,18 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox1
+            // pictureBox2
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(223, 62);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(674, 1);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "  \r\n              Search\r\n\r\n";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(212, 62);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(652, 566);
-            this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.totalLabel);
-            this.panel3.Controls.Add(this.discountLabel);
-            this.panel3.Controls.Add(this.discountpLabel);
-            this.panel3.Controls.Add(this.subtotalLabel);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(869, 457);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(297, 174);
-            this.panel3.TabIndex = 5;
-            // 
-            // totalLabel
-            // 
-            this.totalLabel.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(73, 72);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(204, 27);
-            this.totalLabel.TabIndex = 19;
-            this.totalLabel.Text = "₱ 0.00";
-            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // discountLabel
-            // 
-            this.discountLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountLabel.Location = new System.Drawing.Point(177, 50);
-            this.discountLabel.Name = "discountLabel";
-            this.discountLabel.Size = new System.Drawing.Size(100, 16);
-            this.discountLabel.TabIndex = 18;
-            this.discountLabel.Text = "₱ 0.00";
-            this.discountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // discountpLabel
-            // 
-            this.discountpLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountpLabel.Location = new System.Drawing.Point(177, 32);
-            this.discountpLabel.Name = "discountpLabel";
-            this.discountpLabel.Size = new System.Drawing.Size(100, 16);
-            this.discountpLabel.TabIndex = 17;
-            this.discountpLabel.Text = "0%";
-            this.discountpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // subtotalLabel
-            // 
-            this.subtotalLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotalLabel.Location = new System.Drawing.Point(177, 16);
-            this.subtotalLabel.Name = "subtotalLabel";
-            this.subtotalLabel.Size = new System.Drawing.Size(100, 16);
-            this.subtotalLabel.TabIndex = 16;
-            this.subtotalLabel.Text = "₱ 0.00";
-            this.subtotalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 16);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Discount %";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Subtotal";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Discount";
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(22, 111);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(257, 49);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Checkout";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 27);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Total";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 91);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 359);
-            this.flowLayoutPanel2.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(870, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Current Order";
-            // 
-            // userPanel
-            // 
-            this.userPanel.Location = new System.Drawing.Point(211, 62);
-            this.userPanel.Name = "userPanel";
-            this.userPanel.Size = new System.Drawing.Size(955, 569);
-            this.userPanel.TabIndex = 7;
-            // 
-            // userBar1
-            // 
-            this.userBar1.Location = new System.Drawing.Point(946, -2);
-            this.userBar1.Name = "userBar1";
-            this.userBar1.Size = new System.Drawing.Size(160, 43);
-            this.userBar1.TabIndex = 2;
-            this.userBar1.Username = "Username";
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::GroceryPOS.Properties.Resources.trash;
+            this.pictureBox2.Location = new System.Drawing.Point(925, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Clear Cart");
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // MainFrame
             // 
@@ -440,10 +453,12 @@
             this.Text = "Main Frame";
             this.dockertop.ResumeLayout(false);
             this.dockertop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.userPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,7 +492,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel userPanel;
-        private Components.UserBar userBar1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 

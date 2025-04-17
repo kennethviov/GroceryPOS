@@ -44,7 +44,6 @@
             // 
             // button1
             // 
-            this.button1.Image = global::GroceryPOS.Properties.Resources.search__1_;
             this.button1.Location = new System.Drawing.Point(262, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 38);

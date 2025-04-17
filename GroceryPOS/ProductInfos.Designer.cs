@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductInfos));
             this.stock = new System.Windows.Forms.Label();
             this.soldBy = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.Label();
@@ -84,17 +85,17 @@
             // productName
             // 
             this.productName.AutoSize = true;
-            this.productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productName.Location = new System.Drawing.Point(195, 11);
+            this.productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productName.Location = new System.Drawing.Point(195, 48);
             this.productName.Name = "productName";
-            this.productName.Size = new System.Drawing.Size(128, 24);
+            this.productName.Size = new System.Drawing.Size(113, 18);
             this.productName.TabIndex = 13;
             this.productName.Text = "Product name";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.broken_image;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(11, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 175);

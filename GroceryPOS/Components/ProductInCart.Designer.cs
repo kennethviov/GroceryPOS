@@ -61,7 +61,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 12);
+            this.label3.Location = new System.Drawing.Point(197, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 4;
@@ -100,7 +100,7 @@
             // decreaseBtn
             // 
             this.decreaseBtn.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.decreaseBtn.Location = new System.Drawing.Point(182, 27);
+            this.decreaseBtn.Location = new System.Drawing.Point(179, 27);
             this.decreaseBtn.Name = "decreaseBtn";
             this.decreaseBtn.Size = new System.Drawing.Size(23, 23);
             this.decreaseBtn.TabIndex = 8;
@@ -110,11 +110,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox1.Location = new System.Drawing.Point(205, 27);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(197, 27);
             this.textBox1.MaxLength = 3;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(30, 23);
+            this.textBox1.Size = new System.Drawing.Size(41, 22);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "1";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

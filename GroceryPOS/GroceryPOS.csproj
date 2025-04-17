@@ -238,6 +238,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Receipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,14 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,227 +320,194 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\charmander.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4ff58db7-dee7-47a3-bc3b-91d1efda1344.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\files\" />
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\c2 green.jpg" />
+    <None Include="Resources\A5 Wagyu.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\c2 red.jpg" />
+    <None Include="Resources\Absolut Vodka.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fanta.jpg" />
+    <None Include="Resources\Apple C2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sprite.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fanta 1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sprite 1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coke 1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coke.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gatorade.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1l water.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\500ml water.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drumstick.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chicken wings.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\whole chicken.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chicken thigh.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\A5 wagyu.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\beef flank.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pork belly.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ribeye.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pork ribs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\kiwi.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mangosteen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\avocado.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\blueberry.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\strawberry.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\watermelon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pineapple.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\grapes.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mango.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\banana.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\orange.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\apple.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\green onion.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\potato.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\eggplant.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\squash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bell pepper.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\carrot.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lettuce.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ginger.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\garlic.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\onion.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\kamunggay.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tomato.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\broken-image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lucky day.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\barcode.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cross.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arrow-small-left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\49681290_9185570.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arrow-left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Your paragraph text.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Your paragraph text1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Untitled design.png" />
+    <None Include="Resources\Apple.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\liquor.png" />
+    <None Include="Resources\arrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\liquor %281%29.png" />
+    <None Include="Resources\Avocado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bacardi Rum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banana.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tequila.png" />
+    <None Include="Resources\barcode.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wine.png" />
+    <None Include="Resources\Beef Flank.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\redhorse.png" />
+    <None Include="Resources\Beef Ribeye.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vodka.png" />
+    <None Include="Resources\Bell Pepper.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bacardi.png" />
+    <None Include="Resources\Blueberry.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\grocery-cart.png" />
+    <None Include="Resources\broken-image.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user.png" />
+    <None Include="Resources\Carrot.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\down-arrow.png" />
+    <None Include="Resources\Casamigos Tequila.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\profile-user.png" />
+    <None Include="Resources\Chicken Drumsticks.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\inventory.png" />
+    <None Include="Resources\Chicken Thigh.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lock.png" />
+    <None Include="Resources\Chicken Wings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Classic C2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coke 1L.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eggplant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fanta 1L.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fanta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garlic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gatorade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ginger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grapes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Onion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kamunggay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kiwi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kopiko Lucky Day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lettuce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquor %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mangosteen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Onion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pineapple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pork Belly.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red Horse 1L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sauvignon Blanc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprite 1L.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Squash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Strawberry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tomato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water 1L.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water 500ml.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Watermelon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whole Chicken.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xclose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Frog Artist.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

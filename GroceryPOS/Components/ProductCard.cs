@@ -19,7 +19,7 @@ namespace GroceryPOS
             set => pictureBox1.Image = value;
         }
 
-        public string ProducTitle
+        public string ProductName
         {
             get => label1.Text;
             set => label1.Text = value;

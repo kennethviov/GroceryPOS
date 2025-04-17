@@ -125,7 +125,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GroceryPOS.Properties.Resources._lock;
             this.pictureBox2.Location = new System.Drawing.Point(313, 172);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 22);
@@ -134,7 +133,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.user;
             this.pictureBox1.Location = new System.Drawing.Point(313, 126);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 22);
@@ -143,7 +141,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GroceryPOS.Properties.Resources.cross;
             this.pictureBox3.Location = new System.Drawing.Point(519, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(16, 22);
