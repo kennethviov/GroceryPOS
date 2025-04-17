@@ -298,6 +298,9 @@
             this.pictureBox1.TabStop = false;
             this.toolTip2.SetToolTip(this.pictureBox1, "Close App");
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // button1
             // 
@@ -422,8 +425,8 @@
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::GroceryPOS.Properties.Resources.trash;
-            this.pictureBox2.Location = new System.Drawing.Point(925, 0);
+            this.pictureBox2.Image = global::GroceryPOS.Properties.Resources.trashbin;
+            this.pictureBox2.Location = new System.Drawing.Point(924, 1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

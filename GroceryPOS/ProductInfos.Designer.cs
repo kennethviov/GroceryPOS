@@ -85,10 +85,10 @@
             // productName
             // 
             this.productName.AutoSize = true;
-            this.productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productName.Font = new System.Drawing.Font("Arial Narrow", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productName.Location = new System.Drawing.Point(195, 48);
             this.productName.Name = "productName";
-            this.productName.Size = new System.Drawing.Size(113, 18);
+            this.productName.Size = new System.Drawing.Size(106, 22);
             this.productName.TabIndex = 13;
             this.productName.Text = "Product name";
             // 

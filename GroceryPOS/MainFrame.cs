@@ -12,7 +12,6 @@ using GroceryStroreDiscountGUI.Components;
 using Microsoft.Data.SqlClient;
 using System.Resources;
 using System.Reflection;
-using System.Drawing;
 
 namespace GroceryPOS
 {
@@ -21,7 +20,7 @@ namespace GroceryPOS
 
         readonly List<ProductInCart> cartItems;
         readonly List<ProductCard> products = new List<ProductCard>();
-        private ProductInfos productInfo;
+        readonly ProductInfos productInfo;
         readonly Image productImage;
 
         Point mouseLocation;
@@ -89,20 +88,16 @@ namespace GroceryPOS
         
         private void ProductLoadImage(ProductCard product)
         {
-            // Get the resource manager from your project's Resources
             ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
 
-            // Attempt to load the image based on the product title
             Image img = (Image)rm.GetObject(product.ProductName);
 
-            // Assign it if it's found
             if (img != null)
             {
                 product.ProductImage = img;
             }
             else
             {
-                // fallback image or error handling
                 product.ProductImage = GroceryPOS.Properties.Resources.broken_image;
             }
         }
@@ -110,7 +105,7 @@ namespace GroceryPOS
 
         //
         //
-        // Product Card Events or Mouse Events
+        // Product Card Events and other Mouse Events
         //
         //
         private void ClickHandler(object sender, EventArgs e)
@@ -263,6 +258,21 @@ namespace GroceryPOS
             DisplayCategory("liquor");
         }
 
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.FromArgb(189, 26, 26);
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox1.BackColor = Color.FromArgb(138, 30, 30);
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.FromArgb(114, 137, 218);
+        }
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to clear your order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -300,6 +310,7 @@ namespace GroceryPOS
             panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 15, 15));
             panel3.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 15, 15));
             flowLayoutPanel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel2.Width, flowLayoutPanel2.Height, 15, 15));
+            pictureBox1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, pictureBox1.Width, pictureBox1.Height, 10, 10));
         }
 
         private void DisplayCategory(string category)

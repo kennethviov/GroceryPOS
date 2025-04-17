@@ -213,6 +213,16 @@ namespace GroceryPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bin {
+            get {
+                object obj = ResourceManager.GetObject("bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blueberry {
             get {
                 object obj = ResourceManager.GetObject("Blueberry", resourceCulture);
@@ -606,6 +616,16 @@ namespace GroceryPOS.Properties {
         internal static System.Drawing.Bitmap trash {
             get {
                 object obj = ResourceManager.GetObject("trash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trashbin {
+            get {
+                object obj = ResourceManager.GetObject("trashbin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
