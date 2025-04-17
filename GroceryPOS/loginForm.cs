@@ -68,7 +68,7 @@ namespace GroceryPOS
 
         private void label3_Click(object sender, EventArgs e)
         {
-            signinForm sf = new signinForm();
+            signupForm sf = new signupForm();
             sf.Show();
         }
 

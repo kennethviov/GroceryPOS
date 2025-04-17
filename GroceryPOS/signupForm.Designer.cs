@@ -1,6 +1,6 @@
 ﻿namespace GroceryPOS
 {
-    partial class signinForm
+    partial class signupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -87,9 +87,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(309, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 24);
+            this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 40;
-            this.label1.Text = "Sign in";
+            this.label1.Text = "Sign up";
             // 
             // button1
             // 
@@ -172,7 +172,7 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // signinForm
+            // signupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +190,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.usernameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "signinForm";
+            this.Name = "signupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "signinForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

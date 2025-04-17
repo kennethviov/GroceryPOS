@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GroceryPOS
 {
-    public partial class signinForm : Form
+    public partial class signupForm : Form
     {
         String username;
         String password;
 
         bool UserExist = true; // This should be a method, not a boolean variable
 
-        public signinForm()
+        public signupForm()
         {
             InitializeComponent();
             setPlaceholder();
