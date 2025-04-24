@@ -39,7 +39,7 @@ namespace GroceryPOS
             set => label4.Text = value;
         }
 
-        public string Descrition 
+        public string Description 
         { 
             get => description.Text; 
             set => description.Text = value;

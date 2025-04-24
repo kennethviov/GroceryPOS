@@ -36,6 +36,7 @@
             this.productName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.description = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -45,7 +46,7 @@
             // 
             this.stock.AutoSize = true;
             this.stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stock.Location = new System.Drawing.Point(238, 105);
+            this.stock.Location = new System.Drawing.Point(236, 70);
             this.stock.Name = "stock";
             this.stock.Size = new System.Drawing.Size(39, 16);
             this.stock.TabIndex = 17;
@@ -55,7 +56,7 @@
             // 
             this.soldBy.AutoSize = true;
             this.soldBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soldBy.Location = new System.Drawing.Point(195, 89);
+            this.soldBy.Location = new System.Drawing.Point(195, 54);
             this.soldBy.Name = "soldBy";
             this.soldBy.Size = new System.Drawing.Size(64, 16);
             this.soldBy.TabIndex = 16;
@@ -65,7 +66,7 @@
             // 
             this.price.AutoSize = true;
             this.price.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price.Location = new System.Drawing.Point(215, 69);
+            this.price.Location = new System.Drawing.Point(211, 32);
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(48, 22);
             this.price.TabIndex = 15;
@@ -76,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(195, 69);
+            this.label2.Location = new System.Drawing.Point(194, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 22);
             this.label2.TabIndex = 14;
@@ -86,7 +87,7 @@
             // 
             this.productName.AutoSize = true;
             this.productName.Font = new System.Drawing.Font("Arial Narrow", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productName.Location = new System.Drawing.Point(195, 48);
+            this.productName.Location = new System.Drawing.Point(194, 10);
             this.productName.Name = "productName";
             this.productName.Size = new System.Drawing.Size(106, 22);
             this.productName.TabIndex = 13;
@@ -106,18 +107,32 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.description);
+            this.panel1.Controls.Add(this.soldBy);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.price);
             this.panel1.Controls.Add(this.stock);
+            this.panel1.Controls.Add(this.productName);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(340, 195);
             this.panel1.TabIndex = 19;
             // 
+            // description
+            // 
+            this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description.Location = new System.Drawing.Point(198, 95);
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(130, 90);
+            this.description.TabIndex = 21;
+            this.description.Text = "description";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(195, 105);
+            this.label1.Location = new System.Drawing.Point(195, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 20;
@@ -128,10 +143,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 195);
-            this.Controls.Add(this.soldBy);
-            this.Controls.Add(this.price);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.productName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -142,7 +153,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -155,5 +165,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label description;
     }
 }

@@ -165,9 +165,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.label3.Location = new System.Drawing.Point(432, 272);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Sign in";
+            this.label3.Text = "Sign up";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseEnter += new System.EventHandler(this.label3_MouseEnter);
             this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);

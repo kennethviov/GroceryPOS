@@ -65,5 +65,11 @@ namespace GroceryPOS.Components
             get => int.Parse(stock.Text);
             set => stock.Text = value.ToString();
         }
+
+        public string Description
+        {
+            get => description.Text;
+            set => description.Text = value;
+        }
     }
 }

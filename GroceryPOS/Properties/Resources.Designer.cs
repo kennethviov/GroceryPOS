@@ -213,6 +213,16 @@ namespace GroceryPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bill__1_ {
+            get {
+                object obj = ResourceManager.GetObject("bill (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bin {
             get {
                 object obj = ResourceManager.GetObject("bin", resourceCulture);
@@ -413,6 +423,26 @@ namespace GroceryPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inventory__1_ {
+            get {
+                object obj = ResourceManager.GetObject("inventory (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventory__2_ {
+            get {
+                object obj = ResourceManager.GetObject("inventory (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kamunggay {
             get {
                 object obj = ResourceManager.GetObject("Kamunggay", resourceCulture);
@@ -436,6 +466,16 @@ namespace GroceryPOS.Properties {
         internal static System.Drawing.Bitmap Kopiko_Lucky_Day {
             get {
                 object obj = ResourceManager.GetObject("Kopiko Lucky Day", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left {
+            get {
+                object obj = ResourceManager.GetObject("left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

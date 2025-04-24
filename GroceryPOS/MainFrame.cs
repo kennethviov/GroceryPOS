@@ -51,7 +51,7 @@ namespace GroceryPOS
         private void LoadItemsFromDatabase()
         {
             string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; Database = protoDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False";
-            string query = "SELECT\r\n    I.item_id,\r\n    I.item_name,\r\n    I.item_price,\r\n    I.item_unit,\r\n    I.item_stocks,\r\n    C.category_name AS category_description\r\nFROM Items I\r\nJOIN Inventory C ON I.category_id = C.category_id";
+            string query = "SELECT\r\n    I.item_id,\r\n    I.item_name,\r\n    I.item_price,\r\n    I.item_unit,\r\n    I.item_stocks,\r\n    C.category_name AS category_description,\r\n    I.item_description\r\nFROM Items I\r\nJOIN Inventory C ON I.category_id = C.category_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -68,7 +68,8 @@ namespace GroceryPOS
                                 ProductPrice = Convert.ToDouble(reader["item_price"]),
                                 SoldBy = reader["item_unit"].ToString(),
                                 Stock = (int)reader["item_stocks"],
-                                Category = reader["category_description"].ToString().ToLower()
+                                Category = reader["category_description"].ToString().ToLower(),
+                                Description = reader["item_description"].ToString()
                             };
 
                             ProductLoadImage(product); // Load image for the product
@@ -84,7 +85,20 @@ namespace GroceryPOS
                     }
                 }
             }
-        }      
+        }
+
+        private void DecrementFromStocks()
+        {
+            ConnectionInstance.Instance().getConn();
+            foreach (var item in cartItems)
+            {
+                string query = ("exec decrement @productname = " + item.ProductName);
+
+                int quantity = item.Quantity;
+
+                
+            }
+        }
         
         private void ProductLoadImage(ProductCard product)
         {
@@ -150,6 +164,7 @@ namespace GroceryPOS
                 productInfo.ProductPrice = productCard.ProductPrice;
                 productInfo.SoldBy = productCard.SoldBy;
                 productInfo.Stock = productCard.Stock;
+                productInfo.Description = productCard.Description;
 
                 productInfo.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, productInfo.Width, productInfo.Height, 15, 15));
                 productInfo.TopMost = true;
