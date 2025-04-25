@@ -333,6 +333,16 @@ namespace GroceryPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Colorful_Illustrative_Organic_Grocery_Online_Shop_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Colorful Illustrative Organic Grocery Online Shop Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Eggplant {
             get {
                 object obj = ResourceManager.GetObject("Eggplant", resourceCulture);
@@ -666,6 +676,26 @@ namespace GroceryPOS.Properties {
         internal static System.Drawing.Bitmap trashbin {
             get {
                 object obj = ResourceManager.GetObject("trashbin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unlock {
+            get {
+                object obj = ResourceManager.GetObject("unlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
