@@ -32,9 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrame));
             this.dockertop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.walkingtext = new System.Windows.Forms.Label();
+            this.closeopensidebar = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -57,14 +58,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dockertop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.closeopensidebar.SuspendLayout();
             this.panel3.SuspendLayout();
             this.userPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockertop
@@ -74,7 +77,7 @@
             this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
             this.dockertop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.dockertop.Controls.Add(this.pictureBox1);
-            this.dockertop.Controls.Add(this.label2);
+            this.dockertop.Controls.Add(this.walkingtext);
             this.dockertop.Location = new System.Drawing.Point(12, 12);
             this.dockertop.Name = "dockertop";
             this.dockertop.Size = new System.Drawing.Size(1154, 44);
@@ -93,48 +96,69 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.toolTip2.SetToolTip(this.pictureBox1, "Close App");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // label2
+            // walkingtext
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(29, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Welcome to Barangay Basket! ";
+            this.walkingtext.AutoSize = true;
+            this.walkingtext.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.walkingtext.ForeColor = System.Drawing.Color.Crimson;
+            this.walkingtext.Location = new System.Drawing.Point(29, 12);
+            this.walkingtext.Name = "walkingtext";
+            this.walkingtext.Size = new System.Drawing.Size(1294, 22);
+            this.walkingtext.TabIndex = 0;
+            this.walkingtext.Text = "\"🛒 Welcome to  Barangay Basket - Your Budget-Friendly Grocery!\"     \"📢 Promo Al" +
+    "ert: Up to 20% off!\"     \"\"🧺 Barangay Basket. Save More. Live Better.\"";
             // 
-            // panel1
+            // closeopensidebar
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.closeopensidebar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.SidePanel);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Location = new System.Drawing.Point(12, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 568);
-            this.panel1.TabIndex = 0;
+            this.closeopensidebar.BackColor = System.Drawing.SystemColors.Control;
+            this.closeopensidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeopensidebar.Controls.Add(this.SidePanel);
+            this.closeopensidebar.Controls.Add(this.button8);
+            this.closeopensidebar.Controls.Add(this.button1);
+            this.closeopensidebar.Controls.Add(this.button4);
+            this.closeopensidebar.Controls.Add(this.button5);
+            this.closeopensidebar.Controls.Add(this.button3);
+            this.closeopensidebar.Controls.Add(this.button2);
+            this.closeopensidebar.Controls.Add(this.button7);
+            this.closeopensidebar.Location = new System.Drawing.Point(12, 62);
+            this.closeopensidebar.Name = "closeopensidebar";
+            this.closeopensidebar.Size = new System.Drawing.Size(194, 568);
+            this.closeopensidebar.TabIndex = 0;
             // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.LightGray;
-            this.SidePanel.Location = new System.Drawing.Point(0, 9);
+            this.SidePanel.Location = new System.Drawing.Point(0, 5);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 46);
             this.SidePanel.TabIndex = 7;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Gray;
+            this.button8.Image = global::GroceryPOS.Properties.Resources.menu;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(0, 3);
+            this.button8.Name = "button8";
+            this.button8.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(193, 48);
+            this.button8.TabIndex = 9;
+            this.button8.Text = "         Menu";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button1
             // 
@@ -146,7 +170,7 @@
             this.button1.ForeColor = System.Drawing.Color.Gray;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 9);
+            this.button1.Location = new System.Drawing.Point(0, 55);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(193, 48);
@@ -166,7 +190,7 @@
             this.button4.ForeColor = System.Drawing.Color.Gray;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 165);
+            this.button4.Location = new System.Drawing.Point(0, 211);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button4.Size = new System.Drawing.Size(193, 48);
@@ -186,7 +210,7 @@
             this.button5.ForeColor = System.Drawing.Color.Gray;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 217);
+            this.button5.Location = new System.Drawing.Point(0, 263);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(193, 48);
@@ -206,7 +230,7 @@
             this.button3.ForeColor = System.Drawing.Color.Gray;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 113);
+            this.button3.Location = new System.Drawing.Point(0, 159);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button3.Size = new System.Drawing.Size(193, 48);
@@ -226,7 +250,7 @@
             this.button2.ForeColor = System.Drawing.Color.Gray;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 61);
+            this.button2.Location = new System.Drawing.Point(0, 107);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(193, 48);
@@ -246,7 +270,7 @@
             this.button7.ForeColor = System.Drawing.Color.Gray;
             this.button7.Image = global::GroceryPOS.Properties.Resources.bar;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 269);
+            this.button7.Location = new System.Drawing.Point(0, 315);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button7.Size = new System.Drawing.Size(193, 48);
@@ -282,7 +306,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.totalLabel);
             this.panel3.Controls.Add(this.discountLabel);
             this.panel3.Controls.Add(this.discountpLabel);
@@ -400,10 +424,10 @@
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 91);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 93);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 359);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 319);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label1
@@ -412,7 +436,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(870, 62);
+            this.label1.Location = new System.Drawing.Point(3, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 1;
@@ -420,7 +444,7 @@
             // 
             // userPanel
             // 
-            this.userPanel.Controls.Add(this.pictureBox2);
+            this.userPanel.Controls.Add(this.panel1);
             this.userPanel.Location = new System.Drawing.Point(211, 62);
             this.userPanel.Name = "userPanel";
             this.userPanel.Size = new System.Drawing.Size(955, 569);
@@ -430,14 +454,27 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::GroceryPOS.Properties.Resources.trashbin;
-            this.pictureBox2.Location = new System.Drawing.Point(921, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(263, 352);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Clear Cart");
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(658, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(297, 379);
+            this.panel1.TabIndex = 3;
             // 
             // MainFrame
             // 
@@ -445,13 +482,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1178, 642);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dockertop);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.closeopensidebar);
             this.Controls.Add(this.userPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -462,11 +498,13 @@
             this.dockertop.ResumeLayout(false);
             this.dockertop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.closeopensidebar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.userPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,14 +513,14 @@
         #endregion
 
         private System.Windows.Forms.Panel dockertop;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel closeopensidebar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label walkingtext;
         private System.Windows.Forms.Panel SidePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
@@ -501,8 +539,10 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel userPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
