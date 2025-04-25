@@ -45,11 +45,14 @@ namespace GroceryPOS
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.SalesPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.dockertop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.InventoryPanel.SuspendLayout();
+            this.SalesPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -248,6 +251,24 @@ namespace GroceryPOS
             this.label2.TabIndex = 14;
             this.label2.Text = "Item";
             // 
+            // SalesPanel
+            // 
+            this.SalesPanel.Controls.Add(this.label6);
+            this.SalesPanel.Location = new System.Drawing.Point(218, 62);
+            this.SalesPanel.Name = "SalesPanel";
+            this.SalesPanel.Size = new System.Drawing.Size(948, 568);
+            this.SalesPanel.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(20, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Sales Details";
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,8 +278,10 @@ namespace GroceryPOS
             this.Controls.Add(this.dockertop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.InventoryPanel);
+            this.Controls.Add(this.SalesPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
             this.dockertop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).EndInit();
@@ -266,6 +289,8 @@ namespace GroceryPOS
             this.panel1.ResumeLayout(false);
             this.InventoryPanel.ResumeLayout(false);
             this.InventoryPanel.PerformLayout();
+            this.SalesPanel.ResumeLayout(false);
+            this.SalesPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +312,7 @@ namespace GroceryPOS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel SalesPanel;
+        private System.Windows.Forms.Label label6;
     }
 }

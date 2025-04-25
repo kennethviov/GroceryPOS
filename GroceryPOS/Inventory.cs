@@ -67,15 +67,6 @@ namespace GroceryPOS
             startPoint = new Point(e.X, e.Y);
         }
 
-        private void Dockertop_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                Point p = PointToScreen(e.Location);
-                Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
-            }
-        }
-
         private void Dockertop_MouseUp(object sender, MouseEventArgs e) { dragging = false; }
 
         private void closePictureBox_Click(object sender, EventArgs e)
@@ -90,6 +81,7 @@ namespace GroceryPOS
             InventoryBtn.BackColor = Color.FromArgb(229, 229, 229);
             SalesBtn.BackColor = Color.FromArgb(255, 255, 255);
             InventoryPanel.Visible = true;
+            SalesPanel.Visible = false;
         }
 
         private void SalesBtn_Click(object sender, EventArgs e)
@@ -98,7 +90,18 @@ namespace GroceryPOS
             SidePanel.Top = SalesBtn.Top;
             SalesBtn.BackColor = Color.FromArgb(229, 229, 229);
             InventoryBtn.BackColor = Color.FromArgb(255, 255, 255);
+            SalesPanel.Visible= true;
             InventoryPanel.Visible = false;
+        }
+
+        private void backPictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Dockertop_MouseMove(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
