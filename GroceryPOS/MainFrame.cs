@@ -18,6 +18,7 @@ namespace GroceryPOS
     public partial class MainFrame : Form
     {
 
+
         readonly List<ProductInCart> cartItems;
         readonly List<ProductCard> products = new List<ProductCard>();
         readonly ProductInfos productInfo;
@@ -44,6 +45,13 @@ namespace GroceryPOS
 
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
+
+            walkingtext.Left = this.Width;
+            timer1.Interval = 20;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+
+
 
             //LoadItemsFromDatabase();
         }
@@ -99,7 +107,8 @@ namespace GroceryPOS
                 
             }
         }
-        
+      
+
         private void ProductLoadImage(ProductCard product)
         {
             ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
@@ -322,7 +331,7 @@ namespace GroceryPOS
 
             dockertop.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, dockertop.Width, dockertop.Height, 11, 11));
             button6.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, button6.Width, button6.Height, 11, 11));
-            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 11, 11));
+            closeopensidebar.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, closeopensidebar.Width, closeopensidebar.Height, 11, 11));
             panel3.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 11, 11));
             flowLayoutPanel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel2.Width, flowLayoutPanel2.Height, 11, 11));
             pictureBox1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, pictureBox1.Width, pictureBox1.Height, 10, 10));
@@ -446,6 +455,31 @@ namespace GroceryPOS
         private double CalculateTotal(double subtotal, double discount)
         {
             return subtotal - discount;
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            walkingtext.Left -= 2;
+
+            if(walkingtext.Right < 0)
+            {
+                walkingtext.Left = this.Width;
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button8.Height;
+            SidePanel.Top = button8.Top;
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
