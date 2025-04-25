@@ -17,7 +17,7 @@ namespace GroceryPOS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
           
-            Application.Run(new Inventory());
+            Application.Run(new MainFrame());
 
         }
     }

@@ -23,6 +23,7 @@ namespace GroceryPOS
         readonly List<ProductCard> products = new List<ProductCard>();
         readonly ProductInfos productInfo;
         readonly Image productImage;
+        readonly CalculatingFunctions cf;
 
         Point mouseLocation;
 
@@ -45,7 +46,7 @@ namespace GroceryPOS
 
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
-
+            cf = new CalculatingFunctions();
 
             LoadItemsFromDatabase();
 
@@ -412,50 +413,16 @@ namespace GroceryPOS
        
         public void UpdateSummary()
         {
-            double subtotal = CalculateSubtotal();
-            int discountP = DetermineDiscountP(subtotal);
-            double discount = CalculateDiscount(subtotal, discountP);
-            double total = CalculateTotal(subtotal, discount);
+            double subtotal = cf.CalculateSubtotal(cartItems);
+            int discountP = cf.DetermineDiscountP(subtotal);
+            double discount = cf.CalculateDiscount(subtotal, discountP);
+            double total = cf.CalculateTotal(subtotal, discount);
 
             subtotalLabel.Text = "₱ " + subtotal.ToString("N2");
             discountpLabel.Text = $"{discountP}%";
             discountLabel.Text = "₱ " + discount.ToString("N2");
             totalLabel.Text = "₱ " + total.ToString("N2");
         }
-
-        private double CalculateSubtotal()
-        {
-            double subtotal = 0;
-            foreach (var item in cartItems)
-            {
-                subtotal += item.Price * item.Quantity;
-            }
-
-            return subtotal;
-        }
-
-        private int DetermineDiscountP(double subtotal)
-        {
-            if (subtotal >= 500)
-                return 20;
-            else if (subtotal >= 200)
-                return 15;
-            else if (subtotal >= 100)
-                return 10;
-            else
-                return 0;
-        }
-
-        private double CalculateDiscount(double subtotal, int discountP)
-        {
-            return subtotal * discountP / 100;
-        }
-
-        private double CalculateTotal(double subtotal, double discount)
-        {
-            return subtotal - discount;
-        }
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -474,11 +441,6 @@ namespace GroceryPOS
             SidePanel.Height = button8.Height;
             SidePanel.Top = button8.Top;
 
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

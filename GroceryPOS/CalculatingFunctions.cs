@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using GroceryStroreDiscountGUI.Components;
 
 namespace GroceryPOS
 {
     internal class CalculatingFunctions
     {
-        //private double CalculateSubtotal(List<> cartItems)
-        //{
-        //    double subtotal = 0;
-        //    foreach (var item in cartItems)
-        //    {
-        //        subtotal += item.Price * item.Quantity;
-        //    }
 
-        //    return subtotal;
-        //}
+        public double CalculateSubtotal(List<ProductInCart> cartItems)
+        {
+            double subtotal = 0;
+            foreach (var item in cartItems)
+            {
+                subtotal += item.Price * item.Quantity;
+            }
 
-        private int DetermineDiscountP(double subtotal)
+            return subtotal;
+        }
+
+        public int DetermineDiscountP(double subtotal)
         {
             if (subtotal >= 500)
                 return 20;
@@ -31,14 +34,15 @@ namespace GroceryPOS
                 return 0;
         }
 
-        private double CalculateDiscount(double subtotal, int discountP)
+        public double CalculateDiscount(double subtotal, int discountP)
         {
             return subtotal * discountP / 100;
         }
 
-        private double CalculateTotal(double subtotal, double discount)
+        public double CalculateTotal(double subtotal, double discount)
         {
             return subtotal - discount;
         }
+
     }
 }
