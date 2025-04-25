@@ -176,6 +176,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\ItemFromDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ItemFromDatabase.Designer.cs">
+      <DependentUpon>ItemFromDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\NumericStepper.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     <Compile Include="signupForm.Designer.cs">
       <DependentUpon>signupForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Components\ItemFromDatabase.resx">
+      <DependentUpon>ItemFromDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\NumericStepper.resx">
       <DependentUpon>NumericStepper.cs</DependentUpon>
     </EmbeddedResource>
