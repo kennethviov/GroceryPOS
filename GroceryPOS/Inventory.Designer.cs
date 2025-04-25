@@ -166,9 +166,9 @@ namespace GroceryPOS
             // 
             this.stockPanel.AutoScroll = true;
             this.stockPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.stockPanel.Location = new System.Drawing.Point(218, 131);
+            this.stockPanel.Location = new System.Drawing.Point(218, 107);
             this.stockPanel.Name = "stockPanel";
-            this.stockPanel.Size = new System.Drawing.Size(948, 499);
+            this.stockPanel.Size = new System.Drawing.Size(948, 523);
             this.stockPanel.TabIndex = 12;
             // 
             // label1
