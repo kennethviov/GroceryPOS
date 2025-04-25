@@ -58,11 +58,11 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 627);
+            this.label1.Location = new System.Drawing.Point(112, 627);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 74);
             this.label1.TabIndex = 0;
-            this.label1.Text = "JOSHUA SARRY SARRY STORE\r\n\r\nTHANK YOU FOR SHOPPING!";
+            this.label1.Text = "BARANGAY BASKET\r\n\r\nTHANK YOU FOR SHOPPING!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1
@@ -287,9 +287,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.barcode1;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 704);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 704);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(398, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(319, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;

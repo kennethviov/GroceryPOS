@@ -519,6 +519,15 @@
   <ItemGroup>
     <None Include="Resources\left.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Colorful Illustrative Organic Grocery Online Shop Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

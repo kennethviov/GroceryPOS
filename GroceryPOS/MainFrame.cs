@@ -45,7 +45,7 @@ namespace GroceryPOS
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
 
-            LoadItemsFromDatabase();
+            //LoadItemsFromDatabase();
         }
 
         private void LoadItemsFromDatabase()
