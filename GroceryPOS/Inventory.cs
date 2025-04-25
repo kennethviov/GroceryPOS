@@ -48,15 +48,16 @@ namespace GroceryPOS
 
         private void ClosePictureBox_MouseUp(object sender, MouseEventArgs e) { closePictureBox.BackColor = Color.FromArgb(189, 26, 26); }
 
-        private void CloseButton_MouseLeave(object sender, EventArgs e) { closePictureBox.BackColor = Color.FromArgb(114, 137, 218); }
+        private void CloseButton_MouseLeave(object sender, EventArgs e) { closePictureBox.BackColor = Color.FromArgb(148, 168, 78); }
 
-        private void BackButton_MouseEnter(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(95, 117, 194); }
+        private void BackButton_MouseEnter(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(129, 148, 61); }
 
-        private void BackButton_MouseDown(object sender, MouseEventArgs e) { backPictureBox.BackColor = Color.FromArgb(160, 179, 246); }
+        private void BackButton_MouseDown(object sender, MouseEventArgs e) { backPictureBox.BackColor = Color.FromArgb(167, 190, 89); }
 
-        private void BackButton_MouseLeave(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(114, 137, 218); }
+        private void BackPictureBox_MouseUp(object sender, MouseEventArgs e) { backPictureBox.BackColor = Color.FromArgb(129, 148, 61); }
 
-        private void BackPictureBox_MouseUp(object sender, MouseEventArgs e) { backPictureBox.BackColor = Color.FromArgb(95, 117, 194); }
+        private void BackButton_MouseLeave(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(148, 168, 78); }
+
 
         private bool dragging = false;
         private Point startPoint = new Point(0, 0);

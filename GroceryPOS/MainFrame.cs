@@ -45,7 +45,7 @@ namespace GroceryPOS
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
 
-            //LoadItemsFromDatabase();
+            LoadItemsFromDatabase();
         }
 
         private void LoadItemsFromDatabase()
@@ -285,7 +285,7 @@ namespace GroceryPOS
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.BackColor = Color.FromArgb(114, 137, 218);
+            pictureBox1.BackColor = Color.FromArgb(148, 168, 78);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

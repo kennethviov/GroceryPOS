@@ -176,6 +176,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatingFunctions.cs" />
     <Compile Include="Components\ItemFromDatabase.cs">
       <SubType>UserControl</SubType>
     </Compile>

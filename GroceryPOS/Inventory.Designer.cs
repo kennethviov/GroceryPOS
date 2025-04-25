@@ -74,7 +74,7 @@ namespace GroceryPOS
             // 
             this.dockertop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
             this.dockertop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.dockertop.Controls.Add(this.backPictureBox);
             this.dockertop.Controls.Add(this.closePictureBox);
