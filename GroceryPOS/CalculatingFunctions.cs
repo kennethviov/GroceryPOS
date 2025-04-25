@@ -8,16 +8,16 @@ namespace GroceryPOS
 {
     internal class CalculatingFunctions
     {
-        private double CalculateSubtotal(List<> cartItems)
-        {
-            double subtotal = 0;
-            foreach (var item in cartItems)
-            {
-                subtotal += item.Price * item.Quantity;
-            }
+        //private double CalculateSubtotal(List<> cartItems)
+        //{
+        //    double subtotal = 0;
+        //    foreach (var item in cartItems)
+        //    {
+        //        subtotal += item.Price * item.Quantity;
+        //    }
 
-            return subtotal;
-        }
+        //    return subtotal;
+        //}
 
         private int DetermineDiscountP(double subtotal)
         {
