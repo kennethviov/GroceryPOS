@@ -394,6 +394,14 @@ namespace GroceryPOS
                 if (result == DialogResult.Yes)
                 {
                     Receipt rec = new Receipt(cartItems);
+
+                    rec.StartPosition = FormStartPosition.Manual;
+                    //rec.Location = new Point(
+                    //    this.Location.X + this.Width, 
+                    //    this.Location.Y
+                    //);
+
+                    //rec.Show();
                     rec.ShowDialog();
 
                     flowLayoutPanel2.Controls.Clear();

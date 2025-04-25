@@ -18,6 +18,8 @@ namespace GroceryPOS
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Inventory());
 
+
+
         }
     }
 }
