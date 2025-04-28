@@ -7,17 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GroceryPOS.Screens;
 
 namespace GroceryPOS
 {
-    public partial class loginForm : Form
+    public partial class LoginForm : Form
     {
         string username;
         string password;
         
 
-        public loginForm()
+        public LoginForm()
         {
             InitializeComponent();
             setPlaceholder();
@@ -35,7 +34,7 @@ namespace GroceryPOS
         }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,7 +67,7 @@ namespace GroceryPOS
 
         private void label3_Click(object sender, EventArgs e)
         {
-            signupForm sf = new signupForm();
+            SignupForm sf = new SignupForm();
             sf.Show();
         }
 

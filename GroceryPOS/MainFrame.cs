@@ -7,11 +7,11 @@ using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using GroceryPOS.Components;
-using GroceryPOS.Screens;
 using GroceryStroreDiscountGUI.Components;
 using Microsoft.Data.SqlClient;
 using System.Resources;
 using System.Reflection;
+using CuoreUI;
 
 namespace GroceryPOS
 {
@@ -22,8 +22,8 @@ namespace GroceryPOS
         readonly List<ProductInCart> cartItems;
         readonly List<ProductCard> products = new List<ProductCard>();
         readonly ProductInfos productInfo;
-        readonly Image productImage;
         readonly CalculatingFunctions cf;
+        readonly DataHandler sdbh;
 
         Point mouseLocation;
 
@@ -42,86 +42,34 @@ namespace GroceryPOS
         public MainFrame()
         {
             InitializeComponent();
-            RegionLoad();
 
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
             cf = new CalculatingFunctions();
+            sdbh = new DataHandler();
 
-            LoadItemsFromDatabase();
+            products = sdbh.LoadProductsFromDatabase();
+
+            LoadToFlowLayoutPanel();
 
             walkingtext.Left = this.Width;
             timer1.Interval = 20;
             timer1.Tick += timer1_Tick;
             timer1.Start();
+
+            RegionLoad();
         }
 
-        private void LoadItemsFromDatabase()
+        private void LoadToFlowLayoutPanel()
         {
-            string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; Database = protoDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False";
-            string query = "SELECT\r\n    I.item_id,\r\n    I.item_name,\r\n    I.item_price,\r\n    I.item_unit,\r\n    I.item_stocks,\r\n    C.category_name AS category_description,\r\n    I.item_description\r\nFROM Items I\r\nJOIN Inventory C ON I.category_id = C.category_id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            foreach (var product in products)
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection)) 
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            ProductCard product = new ProductCard
-                            {
-                                ProductName = reader["item_name"].ToString(),
-                                ProductPrice = Convert.ToDouble(reader["item_price"]),
-                                SoldBy = reader["item_unit"].ToString(),
-                                Stock = (int)reader["item_stocks"],
-                                Category = reader["category_description"].ToString().ToLower(),
-                                Description = reader["item_description"].ToString()
-                            };
+                flowLayoutPanel1.Controls.Add(product);
+                product.Click += ClickHandler;
+                product.MouseEnter += ProductCard_MouseEnter;
+                product.MouseLeave += ProductCard_MouseLeave;
 
-                            ProductLoadImage(product); // Load image for the product
-
-                            products.Add(product);
-                            flowLayoutPanel1.Controls.Add(product); // Ensure UI updates
-                            product.Click += ClickHandler;
-                            product.MouseEnter += ProductCard_MouseEnter;
-                            product.MouseLeave += ProductCard_MouseLeave;
-
-                            product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
-                        }
-                    }
-                }
-            }
-        }
-
-        private void DecrementFromStocks()
-        {
-            ConnectionInstance.Instance().getConn();
-            foreach (var item in cartItems)
-            {
-                string query = ("exec decrement @productname = " + item.ProductName);
-
-                int quantity = item.Quantity;
-
-                
-            }
-        }
-      
-
-        private void ProductLoadImage(ProductCard product)
-        {
-            ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
-
-            Image img = (Image)rm.GetObject(product.ProductName);
-
-            if (img != null)
-            {
-                product.ProductImage = img;
-            }
-            else
-            {
-                product.ProductImage = GroceryPOS.Properties.Resources.broken_image;
+                product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
             }
         }
 
@@ -154,6 +102,8 @@ namespace GroceryPOS
                         Quantity = 1
                     };
 
+                    cartItem.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, cartItem.Width, cartItem.Height, 15, 15));
+
                     cartItems.Add(cartItem);
                     flowLayoutPanel2.Controls.Add(cartItem);
                 }
@@ -175,7 +125,6 @@ namespace GroceryPOS
                 productInfo.Stock = productCard.Stock;
                 productInfo.Description = productCard.Description;
 
-                productInfo.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, productInfo.Width, productInfo.Height, 15, 15));
                 productInfo.TopMost = true;
                 productInfo.BringToFront();
                 productInfo.Show();
@@ -299,13 +248,21 @@ namespace GroceryPOS
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear your order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            
+            if (cartItems.Count == 0)
             {
-                flowLayoutPanel2.Controls.Clear();
-                cartItems.Clear();
-                UpdateSummary();
+                MessageBox.Show("Cart is Empty", "Cart Status", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to clear your order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    flowLayoutPanel2.Controls.Clear();
+                    cartItems.Clear();
+                    UpdateSummary();
+                }
             }
         }
 
@@ -333,8 +290,12 @@ namespace GroceryPOS
             button6.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, button6.Width, button6.Height, 11, 11));
             closeopensidebar.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, closeopensidebar.Width, closeopensidebar.Height, 11, 11));
             panel3.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 11, 11));
+            flowLayoutPanel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel1.Width, flowLayoutPanel1.Height, 11, 11));
             flowLayoutPanel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanel2.Width, flowLayoutPanel2.Height, 11, 11));
             pictureBox1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, pictureBox1.Width, pictureBox1.Height, 10, 10));
+            productInfo.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, productInfo.Width, productInfo.Height, 15, 15));
+            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 15, 15));
+
         }
 
         private void DisplayCategory(string category)
@@ -394,14 +355,6 @@ namespace GroceryPOS
                 if (result == DialogResult.Yes)
                 {
                     Receipt rec = new Receipt(cartItems);
-
-                    rec.StartPosition = FormStartPosition.Manual;
-                    //rec.Location = new Point(
-                    //    this.Location.X + this.Width, 
-                    //    this.Location.Y
-                    //);
-
-                    //rec.Show();
                     rec.ShowDialog();
 
                     flowLayoutPanel2.Controls.Clear();

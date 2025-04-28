@@ -1,6 +1,6 @@
 ﻿namespace GroceryPOS.Components
 {
-    partial class ItemFromDatabase
+    partial class DBItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,10 +31,10 @@
             this.itemImage = new System.Windows.Forms.PictureBox();
             this.itemName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.itemStock = new System.Windows.Forms.Label();
             this.itemCategory = new System.Windows.Forms.Label();
             this.itemPrice = new System.Windows.Forms.Label();
             this.PesoSign = new System.Windows.Forms.Label();
+            this.itemStock = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,16 +66,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
-            // itemStock
-            // 
-            this.itemStock.AutoSize = true;
-            this.itemStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemStock.Location = new System.Drawing.Point(857, 6);
-            this.itemStock.Name = "itemStock";
-            this.itemStock.Size = new System.Drawing.Size(37, 15);
-            this.itemStock.TabIndex = 21;
-            this.itemStock.Text = "Stock";
-            // 
             // itemCategory
             // 
             this.itemCategory.AutoSize = true;
@@ -105,18 +95,31 @@
             this.PesoSign.TabIndex = 22;
             this.PesoSign.Text = "₱";
             // 
-            // ItemFromDatabase
+            // itemStock
+            // 
+            this.itemStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemStock.Location = new System.Drawing.Point(859, 3);
+            this.itemStock.MaxLength = 3;
+            this.itemStock.Name = "itemStock";
+            this.itemStock.ReadOnly = true;
+            this.itemStock.Size = new System.Drawing.Size(41, 21);
+            this.itemStock.TabIndex = 23;
+            this.itemStock.Text = "1";
+            this.itemStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DBItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.PesoSign);
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.itemStock);
+            this.Controls.Add(this.PesoSign);
             this.Controls.Add(this.itemCategory);
             this.Controls.Add(this.itemPrice);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.itemName);
             this.Controls.Add(this.itemImage);
-            this.Name = "ItemFromDatabase";
+            this.Name = "DBItem";
             this.Size = new System.Drawing.Size(912, 28);
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).EndInit();
             this.ResumeLayout(false);
@@ -129,9 +132,9 @@
         private System.Windows.Forms.PictureBox itemImage;
         private System.Windows.Forms.Label itemName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label itemStock;
         private System.Windows.Forms.Label itemCategory;
         private System.Windows.Forms.Label itemPrice;
         private System.Windows.Forms.Label PesoSign;
+        private System.Windows.Forms.TextBox itemStock;
     }
 }

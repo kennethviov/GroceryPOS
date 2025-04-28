@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GroceryPOS.Components
 {
-    public partial class ItemFromDatabase : UserControl
+    public partial class DBItem : UserControl
     {
-        public ItemFromDatabase()
+        public DBItem()
         {
             InitializeComponent();
         }

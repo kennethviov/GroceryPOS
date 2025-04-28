@@ -177,11 +177,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculatingFunctions.cs" />
-    <Compile Include="Components\ItemFromDatabase.cs">
+    <Compile Include="Components\DBItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\ItemFromDatabase.Designer.cs">
-      <DependentUpon>ItemFromDatabase.cs</DependentUpon>
+    <Compile Include="Components\DBItem.Designer.cs">
+      <DependentUpon>DBItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\NumericStepper.cs">
       <SubType>UserControl</SubType>
@@ -190,17 +190,18 @@
       <DependentUpon>NumericStepper.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionInstance.cs" />
-    <Compile Include="Inventory.cs">
+    <Compile Include="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory.Designer.cs">
-      <DependentUpon>Inventory.cs</DependentUpon>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginForm.cs">
+    <Compile Include="Item.cs" />
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loginForm.Designer.cs">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductInfos.cs">
       <SubType>Form</SubType>
@@ -251,29 +252,24 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin.cs">
+    <Compile Include="SignupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <Compile Include="SignupForm.Designer.cs">
+      <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="signupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="signupForm.Designer.cs">
-      <DependentUpon>signupForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Components\ItemFromDatabase.resx">
-      <DependentUpon>ItemFromDatabase.cs</DependentUpon>
+    <Compile Include="DataHandler.cs" />
+    <EmbeddedResource Include="Components\DBItem.resx">
+      <DependentUpon>DBItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\NumericStepper.resx">
       <DependentUpon>NumericStepper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory.resx">
-      <DependentUpon>Inventory.cs</DependentUpon>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="loginForm.resx">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInfos.resx">
       <DependentUpon>ProductInfos.cs</DependentUpon>
@@ -301,11 +297,8 @@
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="signupForm.resx">
-      <DependentUpon>signupForm.cs</DependentUpon>
+    <EmbeddedResource Include="SignupForm.resx">
+      <DependentUpon>SignupForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -540,6 +533,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

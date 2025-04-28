@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GroceryPOS
 {
-    public partial class signupForm : Form
+    public partial class SignupForm : Form
     {
         String username;
         String password;
 
         bool UserExist = true; // This should be a method, not a boolean variable
 
-        public signupForm()
+        public SignupForm()
         {
             InitializeComponent();
             setPlaceholder();
@@ -37,7 +37,7 @@ namespace GroceryPOS
 
         private void label3_Click(object sender, EventArgs e)
         {
-            loginForm lf = new loginForm();
+            LoginForm lf = new LoginForm();
             lf.Show();
         }
 
