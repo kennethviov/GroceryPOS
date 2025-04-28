@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,33 +20,43 @@ namespace GroceryPOS.Components
 
         public Image ItemImage
         {
-            get { return itemImage.Image; }
-            set { itemImage.Image = value; }
+            get => itemImage.Image;
+            set => itemImage.Image = value;
         }
 
         public String ItemName
         {
-            get { return itemName.Text; }
-            set { itemName.Text = value; }
+            get => itemName.Text;
+            set => itemName.Text = value;
         }
 
         public String ItemPrice
         {
-            get { return itemPrice.Text; }
-            set { itemPrice.Text = value; }
+            get => itemPrice.Text;
+            set => itemPrice.Text = value;
         }
 
         public String ItemCategory
         {
-            get { return itemCategory.Text; }
-            set { itemCategory.Text = value; }
+            get => itemCategory.Text;
+            set => itemCategory.Text = value;
         }
 
         public String ItemStock
         {
-            get { return itemStock.Text; }
-            set { itemStock.Text = value; }
+            get => itemStock.Text;
+            set => itemStock.Text = value;
         }
+
         
+        // KeyPress handler
+        private void ItemStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

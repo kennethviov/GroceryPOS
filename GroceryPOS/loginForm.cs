@@ -19,28 +19,35 @@ namespace GroceryPOS
         public LoginForm()
         {
             InitializeComponent();
-            setPlaceholder();
-            AcceptButton = button1;
+            SetPlaceholder();
+            AcceptButton = loginBtn;
+            signupPanel.Visible = false; // Initially hide the signup panel
         }
 
-        private void setPlaceholder()
+        private void SetPlaceholder()
         {
-            usernameTextBox.Text = "Username";
-            usernameTextBox.ForeColor = Color.Gray;
+            liUsername.Text = "Username";
+            liUsername.ForeColor = Color.Gray;
+            suUsername.Text = "Username";
+            suUsername.ForeColor = Color.Gray;
 
-            passwordTextBox.Text = "Password";
-            passwordTextBox.ForeColor = Color.Gray;
-            passwordTextBox.PasswordChar = '\0'; // Show text instead of dots
+            liPassword.Text = "Password";
+            liPassword.ForeColor = Color.Gray;
+            liPassword.PasswordChar = '\0'; // Show text instead of dots
+            suPassword.Text = "Password";
+            suPassword.ForeColor = Color.Gray;
+            suPassword.PasswordChar = '\0'; // Show text instead of dots
         }
-        private void pictureBox3_Click(object sender, EventArgs e)
+
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            username = usernameTextBox.Text;
-            password = passwordTextBox.Text;
+            username = liUsername.Text;
+            password = liPassword.Text;
 
             if (username == "admin" && password == "admin")
             {
@@ -58,71 +65,55 @@ namespace GroceryPOS
             }
         }
 
-        private void showpasswordcheckbox_CheckedChanged(object sender, EventArgs e)
+        private void SignupBtn_Click(object sender, EventArgs e)
+        {
+            username = suUsername.Text;
+            password = suPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Username and Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (UserExists(username))
+            {
+                MessageBox.Show("Username already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Here, you should insert the user into your database or list
+            MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private bool UserExists(string username)
+        {
+            // This should ideally check a database or a list of users
+            List<string> existingUsers = new List<string> { "admin", "testUser" }; // Example data
+            return existingUsers.Contains(username);
+        }
+
+        private void Showpasswordcheckbox_CheckedChanged(object sender, EventArgs e)
         {
             // if the checkbox is checked, show the password by setting PasswordChar to '\0' (no masking).
             // if unchecked, mask the password with '*'
-            passwordTextBox.PasswordChar = showpasswordcheckbox.Checked ? '\0' : '*';
+            liPassword.PasswordChar = showpasswordcheckbox.Checked ? '\0' : '*';
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void SuOrLi_Click(object sender, EventArgs e)
         {
-            SignupForm sf = new SignupForm();
-            sf.Show();
-        }
-
-        private void label3_MouseEnter(object sender, EventArgs e)
-        {
-            label3.ForeColor = Color.Blue; // Change text color when hovered
-            label3.Font = new Font(label3.Font, FontStyle.Underline); // Underline text
-        }
-
-        private void label3_MouseLeave(object sender, EventArgs e)
-        {
-            label3.ForeColor = Color.Black; // Revert text color when not hovered
-            label3.Font = new Font(label3.Font, FontStyle.Regular); // Remove under
-        }
-
-        // username placeholder
-        private void usernameTextBox_Enter(object sender, EventArgs e)
-        {
-            if (usernameTextBox.Text == "Username")
+            Label label = (Label)sender;
+            if (label.Name == "signupHyperLink")
             {
-                usernameTextBox.Text = "";
-                usernameTextBox.ForeColor = Color.Black;
-
+                // Switch to Sign Up
+                loginPanel.Visible = false;
+                signupPanel.Visible = true;
             }
-        }
-
-        private void usernameTextBox_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+            else
             {
-                usernameTextBox.Text = "Username";
-                usernameTextBox.ForeColor = Color.Gray;
-
-            }
-        }
-        
-        // password placeholder
-        private void passwordTextBox_Enter(object sender, EventArgs e)
-        {
-            if (passwordTextBox.Text == "Password")
-            {
-                passwordTextBox.Text = "";
-                passwordTextBox.ForeColor = Color.Black;
-                passwordTextBox.PasswordChar = '*'; 
-            }
-        }
-
-        private void passwordTextBox_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
-            {
-                passwordTextBox.Text = "Password";
-                passwordTextBox.ForeColor = Color.Gray;
-                passwordTextBox.PasswordChar = '\0';
-
+                // Switch to Log In
+                loginPanel.Visible = true;
+                signupPanel.Visible = false;
             }
         }
     } 

@@ -38,6 +38,8 @@ namespace GroceryPOS
             dh = new DataHandler();
             items = dh.LoadItemsFromDatabase();
             LoadToInventoryPanel();
+
+            SalesPanel.Visible = false;
         }
 
         private void LoadToInventoryPanel()
@@ -66,6 +68,7 @@ namespace GroceryPOS
                 };
 
                 dbItems.Add(dbItem);
+                dbItem.itemStock.Cursor = Cursors.Arrow;
             }
         }
 
@@ -131,26 +134,45 @@ namespace GroceryPOS
             Application.Exit();
         }
 
-        private void InventoryBtn_Click(object sender, EventArgs e)
+        private void InvOrSlsBtn_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = InventoryBtn.Height;
-            SidePanel.Top = InventoryBtn.Top;
-            InventoryBtn.BackColor = Color.FromArgb(229, 229, 229);
-            SalesBtn.BackColor = Color.FromArgb(255, 255, 255);
-            InventoryPanel.Visible = true;
-            SalesPanel.Visible = false;
+            Button btn = (Button)sender;
+
+            SidePanel.Height = btn.Height;
+            SidePanel.Top = btn.Top;
+
+            if (btn.Name == "InventoryBtn")
+            {
+                InventoryPanel.Visible = true;
+                SalesPanel.Visible = false;
+            }
+            else
+            {
+                SalesPanel.Visible = true;
+                InventoryPanel.Visible = false;
+            }
         }
 
-        private void SalesBtn_Click(object sender, EventArgs e)
+        bool pressed = false;
+        private void EditBtn_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = SalesBtn.Height;
-            SidePanel.Top = SalesBtn.Top;
-            SalesBtn.BackColor = Color.FromArgb(229, 229, 229);
-            InventoryBtn.BackColor = Color.FromArgb(255, 255, 255);
-            SalesPanel.Visible= true;
-            InventoryPanel.Visible = false;
+            pressed = !pressed;
+            foreach (var dbItem in dbItems)
+            {
+                if (pressed)
+                {
+                    dbItem.itemStock.BorderStyle = BorderStyle.FixedSingle;
+                    dbItem.itemStock.ReadOnly = false;
+                    dbItem.itemStock.Cursor = Cursors.IBeam;
+                }
+                else
+                {
+                    dbItem.itemStock.BorderStyle = BorderStyle.None;
+                    dbItem.itemStock.ReadOnly = true;
+                    dbItem.itemStock.Cursor = Cursors.Arrow;
+                    // update db logic
+                }
+            }
         }
-
-        
     }
 }

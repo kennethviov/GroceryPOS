@@ -97,15 +97,18 @@
             // 
             // itemStock
             // 
+            this.itemStock.BackColor = System.Drawing.Color.White;
+            this.itemStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.itemStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemStock.Location = new System.Drawing.Point(859, 3);
+            this.itemStock.Location = new System.Drawing.Point(853, 3);
             this.itemStock.MaxLength = 3;
             this.itemStock.Name = "itemStock";
             this.itemStock.ReadOnly = true;
-            this.itemStock.Size = new System.Drawing.Size(41, 21);
+            this.itemStock.Size = new System.Drawing.Size(41, 14);
             this.itemStock.TabIndex = 23;
             this.itemStock.Text = "1";
             this.itemStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            itemStock.KeyPress += ItemStock_KeyPress;
             // 
             // DBItem
             // 
@@ -135,6 +138,6 @@
         private System.Windows.Forms.Label itemCategory;
         private System.Windows.Forms.Label itemPrice;
         private System.Windows.Forms.Label PesoSign;
-        private System.Windows.Forms.TextBox itemStock;
+        public System.Windows.Forms.TextBox itemStock;
     }
 }

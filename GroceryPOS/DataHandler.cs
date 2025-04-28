@@ -16,8 +16,8 @@ namespace GroceryPOS
 {
     internal class DataHandler
     {
-        string connectionString;
-        string query;
+        readonly string connectionString;
+        readonly string query;
 
         public DataHandler() {
             connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; Database = protoDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False";
@@ -38,15 +38,15 @@ namespace GroceryPOS
                         {
                             ProductCard product = new ProductCard()
                             {
-                                ProductName = reader["item_name"].ToString(),
-                                ProductPrice = Convert.ToDouble(reader["item_price"]),
+                                Name = reader["item_name"].ToString(),
+                                Price = Convert.ToDouble(reader["item_price"]),
                                 SoldBy = reader["item_unit"].ToString(),
                                 Stock = (int)reader["item_stocks"],
                                 Category = reader["category_description"].ToString().ToLower(),
                                 Description = reader["item_description"].ToString()
                             };
 
-                            product.ProductImage = LoadProductImage(product.ProductName);
+                            product.Image = LoadProductImage(product.ProductName);
 
                             items.Add(product);
                         }

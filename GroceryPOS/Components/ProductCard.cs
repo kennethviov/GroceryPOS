@@ -13,19 +13,19 @@ namespace GroceryPOS
             SetEventHandlers();
         }
 
-        public Image ProductImage
+        public Image Image
         {
             get => pictureBox1.Image;
             set => pictureBox1.Image = value;
         }
 
-        public string ProductName
+        public new string Name
         {
             get => label1.Text;
             set => label1.Text = value;
         }
 
-        public double ProductPrice
+        public double Price
         {
             get => double.Parse(label3.Text);
             set => label3.Text = value.ToString("N2");
