@@ -46,7 +46,7 @@ namespace GroceryPOS
                                 Description = reader["item_description"].ToString()
                             };
 
-                            product.Image = LoadProductImage(product.ProductName);
+                            product.Image = LoadProductImage(product.Name);
 
                             items.Add(product);
                         }
@@ -96,6 +96,8 @@ namespace GroceryPOS
             ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
 
             Image img = (Image)rm.GetObject(productName);
+
+            Console.WriteLine(img);
 
             if (img != null) 
             {
