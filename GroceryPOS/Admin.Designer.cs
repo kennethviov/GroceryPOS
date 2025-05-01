@@ -43,18 +43,28 @@ namespace GroceryPOS
             this.label2 = new System.Windows.Forms.Label();
             this.SalesPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+
             this.backPictureBox = new System.Windows.Forms.PictureBox();
             this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.InventoryBtn = new System.Windows.Forms.Button();
             this.SalesBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.PictureBox();
+
             this.dockertop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.InventoryPanel.SuspendLayout();
             this.SalesPanel.SuspendLayout();
+
+            this.panel2.SuspendLayout();
+
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBtn)).BeginInit();
+
             this.SuspendLayout();
             // 
             // textBox1
@@ -88,6 +98,40 @@ namespace GroceryPOS
             this.dockertop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Dockertop_MouseMove);
             this.dockertop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Dockertop_MouseUp);
             // 
+
+            // backPictureBox
+            // 
+            this.backPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backPictureBox.Image = global::GroceryPOS.Properties.Resources.left;
+            this.backPictureBox.Location = new System.Drawing.Point(13, 9);
+            this.backPictureBox.Name = "backPictureBox";
+            this.backPictureBox.Size = new System.Drawing.Size(24, 24);
+            this.backPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backPictureBox.TabIndex = 2;
+            this.backPictureBox.TabStop = false;
+            this.backPictureBox.Click += new System.EventHandler(this.backPictureBox_Click);
+            this.backPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BackButton_MouseDown);
+            this.backPictureBox.MouseEnter += new System.EventHandler(this.BackButton_MouseEnter);
+            this.backPictureBox.MouseLeave += new System.EventHandler(this.BackButton_MouseLeave);
+            this.backPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BackPictureBox_MouseUp);
+            // 
+            // closePictureBox
+            // 
+            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closePictureBox.Image = global::GroceryPOS.Properties.Resources.xclose;
+            this.closePictureBox.Location = new System.Drawing.Point(1120, 9);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(24, 24);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closePictureBox.TabIndex = 1;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
+            this.closePictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseButton_MouseDown);
+            this.closePictureBox.MouseEnter += new System.EventHandler(this.CloseButton_MouseEnter);
+            this.closePictureBox.MouseLeave += new System.EventHandler(this.CloseButton_MouseLeave);
+            this.closePictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ClosePictureBox_MouseUp);
+            // 
+
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -185,7 +229,8 @@ namespace GroceryPOS
             // 
             // SalesPanel
             // 
-            this.SalesPanel.Controls.Add(this.label6);
+            this.SalesPanel.BackColor = System.Drawing.Color.White;
+            this.SalesPanel.Controls.Add(this.panel2);
             this.SalesPanel.Location = new System.Drawing.Point(218, 62);
             this.SalesPanel.Name = "SalesPanel";
             this.SalesPanel.Size = new System.Drawing.Size(948, 568);
@@ -194,9 +239,44 @@ namespace GroceryPOS
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 2);
             this.label6.Name = "label6";
+
+            this.label6.Size = new System.Drawing.Size(89, 31);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Sales ";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Location = new System.Drawing.Point(488, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(460, 568);
+            this.panel2.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 69);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(437, 499);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(429, 17);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Sales ID               Date                                                   Sal" +
+    "es Total";
+
             this.label6.Size = new System.Drawing.Size(216, 37);
             this.label6.TabIndex = 0;
             this.label6.Text = "Sales Reports";
@@ -283,6 +363,7 @@ namespace GroceryPOS
             this.editBtn.TabIndex = 18;
             this.editBtn.TabStop = false;
             this.editBtn.Click += new System.EventHandler(this.EditBtn_Click);
+
             // 
             // Admin
             // 
@@ -303,10 +384,15 @@ namespace GroceryPOS
             this.InventoryPanel.ResumeLayout(false);
             this.InventoryPanel.PerformLayout();
             this.SalesPanel.ResumeLayout(false);
+
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+
             this.SalesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBtn)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +417,8 @@ namespace GroceryPOS
         private System.Windows.Forms.Panel SalesPanel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox editBtn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -50,12 +50,14 @@
             this.suPassword = new System.Windows.Forms.TextBox();
             this.suUsername = new System.Windows.Forms.TextBox();
             this.loginPanel = new System.Windows.Forms.Panel();
+
             this.closeBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+
             this.signupPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeBtn)).BeginInit();
@@ -106,16 +108,16 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(7, 147);
+            this.panel2.Location = new System.Drawing.Point(3, 147);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(185, 1);
             this.panel2.TabIndex = 15;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(7, 101);
+            this.panel1.Location = new System.Drawing.Point(3, 101);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(185, 1);
             this.panel1.TabIndex = 12;
@@ -248,7 +250,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.panel4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel4.Location = new System.Drawing.Point(3, 147);
             this.panel4.Name = "panel4";
@@ -257,7 +259,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.panel5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel5.Location = new System.Drawing.Point(3, 101);
             this.panel5.Name = "panel5";
@@ -302,6 +304,27 @@
             this.loginPanel.Size = new System.Drawing.Size(214, 243);
             this.loginPanel.TabIndex = 49;
             // 
+
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GroceryPOS.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 71);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GroceryPOS.Properties.Resources.unlock;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 117);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
+
+
             // closeBtn
             // 
             this.closeBtn.Image = global::GroceryPOS.Properties.Resources.xclose;
@@ -323,6 +346,7 @@
             this.pictureBox4.TabIndex = 23;
             this.pictureBox4.TabStop = false;
             // 
+
             // pictureBox5
             // 
             this.pictureBox5.Image = global::GroceryPOS.Properties.Resources.user;
@@ -360,6 +384,7 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
+
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,12 +404,15 @@
             this.signupPanel.PerformLayout();
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
+            
+    
             ((System.ComponentModel.ISupportInitialize)(this.closeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+
             this.ResumeLayout(false);
 
         }
