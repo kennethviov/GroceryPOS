@@ -51,6 +51,7 @@ namespace GroceryPOS
 
             if (username == "admin" && password == "admin")
             {
+                //TODO: Change logic to redirect to Admin
                 MessageBox.Show("Login successfully", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 MainFrame mf = new MainFrame();
@@ -82,6 +83,7 @@ namespace GroceryPOS
                 return;
             }
 
+            // TODO: Add logic to save the new user and redirect back to LogIn panel
             // Here, you should insert the user into your database or list
             MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

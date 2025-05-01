@@ -34,6 +34,7 @@
             this.closeBtn = new System.Windows.Forms.PictureBox();
             this.walkingtext = new System.Windows.Forms.Label();
             this.closeopensidebar = new System.Windows.Forms.Panel();
+            this.adminBtn = new System.Windows.Forms.Button();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.menuBtn = new System.Windows.Forms.Button();
             this.allitemsBtn = new System.Windows.Forms.Button();
@@ -54,18 +55,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.checkoutBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.userPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.clearCartBtn = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.clearCartBtn = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dockertop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeBtn)).BeginInit();
             this.closeopensidebar.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.userPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clearCartBtn)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +73,7 @@
             // 
             this.dockertop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
+            this.dockertop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.dockertop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.dockertop.Controls.Add(this.closeBtn);
             this.dockertop.Controls.Add(this.walkingtext);
@@ -99,13 +98,13 @@
             this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             this.closeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseBtn_MouseDown);
             this.closeBtn.MouseEnter += new System.EventHandler(this.CloseBtn_MouseEnter);
-            this.closeBtn.MouseLeave += new System.EventHandler(this.CLoseBtn_MouseLeave);
+            this.closeBtn.MouseLeave += new System.EventHandler(this.CloseBtn_MouseLeave);
             // 
             // walkingtext
             // 
             this.walkingtext.AutoSize = true;
             this.walkingtext.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.walkingtext.ForeColor = System.Drawing.Color.Crimson;
+            this.walkingtext.ForeColor = System.Drawing.Color.MediumVioletRed;
             this.walkingtext.Location = new System.Drawing.Point(29, 12);
             this.walkingtext.Name = "walkingtext";
             this.walkingtext.Size = new System.Drawing.Size(1294, 22);
@@ -119,6 +118,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.closeopensidebar.BackColor = System.Drawing.SystemColors.Control;
             this.closeopensidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeopensidebar.Controls.Add(this.adminBtn);
             this.closeopensidebar.Controls.Add(this.SidePanel);
             this.closeopensidebar.Controls.Add(this.menuBtn);
             this.closeopensidebar.Controls.Add(this.allitemsBtn);
@@ -131,6 +131,26 @@
             this.closeopensidebar.Name = "closeopensidebar";
             this.closeopensidebar.Size = new System.Drawing.Size(194, 568);
             this.closeopensidebar.TabIndex = 0;
+            // 
+            // adminBtn
+            // 
+            this.adminBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.adminBtn.FlatAppearance.BorderSize = 0;
+            this.adminBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adminBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminBtn.ForeColor = System.Drawing.Color.Gray;
+            this.adminBtn.Image = global::GroceryPOS.Properties.Resources.user__1_;
+            this.adminBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adminBtn.Location = new System.Drawing.Point(0, 520);
+            this.adminBtn.Name = "adminBtn";
+            this.adminBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.adminBtn.Size = new System.Drawing.Size(193, 48);
+            this.adminBtn.TabIndex = 10;
+            this.adminBtn.Text = "          Admin";
+            this.adminBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adminBtn.UseVisualStyleBackColor = true;
+            this.adminBtn.Click += new System.EventHandler(this.AdminBtn_Click);
             // 
             // SidePanel
             // 
@@ -396,7 +416,7 @@
             this.checkoutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(168)))), ((int)(((byte)(78)))));
+            this.checkoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.checkoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkoutBtn.FlatAppearance.BorderSize = 0;
             this.checkoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -420,45 +440,29 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Total";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 93);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(869, 90);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 319);
-            this.flowLayoutPanel2.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Current Order";
-            // 
-            // userPanel
-            // 
-            this.userPanel.Controls.Add(this.panel1);
-            this.userPanel.Location = new System.Drawing.Point(211, 62);
-            this.userPanel.Name = "userPanel";
-            this.userPanel.Size = new System.Drawing.Size(955, 569);
-            this.userPanel.TabIndex = 7;
+            this.flowLayoutPanel2.TabIndex = 8;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.clearCartBtn);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(658, 0);
+            this.panel1.Location = new System.Drawing.Point(870, 62);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 379);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 7;
             // 
             // clearCartBtn
             // 
@@ -472,9 +476,17 @@
             this.clearCartBtn.TabStop = false;
             this.clearCartBtn.Click += new System.EventHandler(this.ClearCartBtn_Click);
             // 
-            // timer1
+            // label1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Current Order";
             // 
             // MainFrame
             // 
@@ -484,10 +496,10 @@
             this.ClientSize = new System.Drawing.Size(1178, 642);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dockertop);
-            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.closeopensidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -501,7 +513,6 @@
             this.closeopensidebar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.userPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clearCartBtn)).EndInit();
@@ -529,20 +540,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button checkoutBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.Label discountpLabel;
         private System.Windows.Forms.Label subtotalLabel;
         private System.Windows.Forms.PictureBox closeBtn;
         private System.Windows.Forms.Button liquorBtn;
-        private System.Windows.Forms.Panel userPanel;
-        private System.Windows.Forms.PictureBox clearCartBtn;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button menuBtn;
+        private System.Windows.Forms.PictureBox clearCartBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button adminBtn;
     }
 }
 

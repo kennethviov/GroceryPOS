@@ -18,6 +18,7 @@ namespace GroceryPOS
         readonly List<Item> items;
         readonly List<DBItem> dbItems = new List<DBItem>();
         readonly DataHandler dh;
+        readonly MainFrame main;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -30,7 +31,7 @@ namespace GroceryPOS
             int nHeightEllipse
         );
 
-        public Admin()
+        public Admin(MainFrame main)
         {
             InitializeComponent();
             RegionLoad();
@@ -40,6 +41,7 @@ namespace GroceryPOS
             LoadToInventoryPanel();
 
             SalesPanel.Visible = false;
+            this.main = main;
         }
 
         private void LoadToInventoryPanel()
@@ -99,7 +101,7 @@ namespace GroceryPOS
 
         private void ClosePictureBox_MouseUp(object sender, MouseEventArgs e) { closePictureBox.BackColor = Color.FromArgb(189, 26, 26); }
 
-        private void CloseButton_MouseLeave(object sender, EventArgs e) { closePictureBox.BackColor = Color.FromArgb(148, 168, 78); }
+        private void CloseButton_MouseLeave(object sender, EventArgs e) { closePictureBox.BackColor = Color.FromArgb(114, 137, 218); }
 
         private void BackButton_MouseEnter(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(129, 148, 61); }
 
@@ -107,7 +109,7 @@ namespace GroceryPOS
 
         private void BackPictureBox_MouseUp(object sender, MouseEventArgs e) { backPictureBox.BackColor = Color.FromArgb(129, 148, 61); }
 
-        private void BackButton_MouseLeave(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(148, 168, 78); }
+        private void BackButton_MouseLeave(object sender, EventArgs e) { backPictureBox.BackColor = Color.FromArgb(114, 137, 218); }
 
 
         private bool dragging = false;
@@ -173,6 +175,12 @@ namespace GroceryPOS
                     // update db logic
                 }
             }
+        }
+
+        private void backPictureBox_Click(object sender, EventArgs e)
+        {
+            main.Show();
+            this.Hide();
         }
     }
 }

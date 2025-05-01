@@ -25,6 +25,7 @@ namespace GroceryPOS
             productInfo = new ProductInfos();
             cf = new CalculatingFunctions();
             dh = new DataHandler();
+            admin = new Admin(this);
 
             products = dh.LoadProductsFromDatabase();
 
@@ -32,25 +33,26 @@ namespace GroceryPOS
 
             walkingtext.Left = this.Width;
             timer1.Interval = 20;
-            timer1.Tick += timer1_Tick;
+            timer1.Tick += Timer1_Tick;
             timer1.Start();
 
             RegionLoad();
         }
 
+        // TODO: Do not directly pass to product card, use the Item class
         private void LoadToFlowLayoutPanel()
         {
             foreach (var product in products)
             {
                 flowLayoutPanel1.Controls.Add(product);
-                product.Click += ClickHandler;
+                product.Click += ProductCard_Click;
                 product.MouseEnter += ProductCard_MouseEnter;
                 product.MouseLeave += ProductCard_MouseLeave;
                 product.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, product.Width, product.Height, 15, 15));
             }
         }
 
-        private void ClickHandler(object sender, EventArgs e)
+        private void ProductCard_Click(object sender, EventArgs e)
         {
             if (sender is ProductCard productCard)
             {
@@ -183,6 +185,16 @@ namespace GroceryPOS
             }
         }
 
+        private void AdminBtn_Click(object sender, EventArgs e)
+        {
+            //if (admin == null || admin.IsDisposed)
+            //{
+            //    admin = new Admin(this);
+            //}
+            admin.Show();
+            this.Hide();
+        }
+
         private void DisplayCategory(string category)
         {
             if (category == "all items")
@@ -210,7 +222,7 @@ namespace GroceryPOS
 
         private void CloseBtn_MouseDown(object sender, MouseEventArgs e) { closeBtn.BackColor = Color.FromArgb(138, 30, 30); }
 
-        private void CLoseBtn_MouseLeave(object sender, EventArgs e) { closeBtn.BackColor = Color.FromArgb(148, 168, 78); }
+        private void CloseBtn_MouseLeave(object sender, EventArgs e) { closeBtn.BackColor = Color.FromArgb(114, 137, 218); }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
@@ -303,7 +315,7 @@ namespace GroceryPOS
             totalLabel.Text = "₱ " + total.ToString("N2");
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
 
             walkingtext.Left -= 2;
@@ -329,12 +341,6 @@ namespace GroceryPOS
             panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 15, 15));
         }
 
-        readonly List<ProductInCart> cartItems;
-        readonly List<ProductCard> products = new List<ProductCard>();
-        readonly ProductInfos productInfo;
-        readonly CalculatingFunctions cf;
-        readonly DataHandler dh;
-
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -345,5 +351,12 @@ namespace GroceryPOS
             int nWidthEllipse,
             int nHeightEllipse
         );
+
+        readonly List<ProductInCart> cartItems;
+        readonly List<ProductCard> products = new List<ProductCard>();
+        readonly ProductInfos productInfo;
+        readonly CalculatingFunctions cf;
+        readonly DataHandler dh;
+        readonly Admin admin;
     }
 }
