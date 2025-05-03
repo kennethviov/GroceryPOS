@@ -32,39 +32,35 @@ namespace GroceryPOS
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dockertop = new System.Windows.Forms.Panel();
+            this.backPictureBox = new System.Windows.Forms.PictureBox();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.InventoryBtn = new System.Windows.Forms.Button();
+            this.SalesBtn = new System.Windows.Forms.Button();
             this.stockPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.InventoryPanel = new System.Windows.Forms.Panel();
+            this.editBtn = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SalesPanel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-
-            this.backPictureBox = new System.Windows.Forms.PictureBox();
-            this.closePictureBox = new System.Windows.Forms.PictureBox();
-            this.InventoryBtn = new System.Windows.Forms.Button();
-            this.SalesBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.PictureBox();
-
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lineChart1 = new LiveCharts.WinForms.CartesianChart();
             this.dockertop.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.InventoryPanel.SuspendLayout();
-            this.SalesPanel.SuspendLayout();
-
-            this.panel2.SuspendLayout();
-
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.InventoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editBtn)).BeginInit();
-
+            this.SalesPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -98,7 +94,6 @@ namespace GroceryPOS
             this.dockertop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Dockertop_MouseMove);
             this.dockertop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Dockertop_MouseUp);
             // 
-
             // backPictureBox
             // 
             this.backPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -109,7 +104,7 @@ namespace GroceryPOS
             this.backPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.backPictureBox.TabIndex = 2;
             this.backPictureBox.TabStop = false;
-            this.backPictureBox.Click += new System.EventHandler(this.backPictureBox_Click);
+            this.backPictureBox.Click += new System.EventHandler(this.BackPictureBox_Click);
             this.backPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BackButton_MouseDown);
             this.backPictureBox.MouseEnter += new System.EventHandler(this.BackButton_MouseEnter);
             this.backPictureBox.MouseLeave += new System.EventHandler(this.BackButton_MouseLeave);
@@ -131,7 +126,6 @@ namespace GroceryPOS
             this.closePictureBox.MouseLeave += new System.EventHandler(this.CloseButton_MouseLeave);
             this.closePictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ClosePictureBox_MouseUp);
             // 
-
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -153,6 +147,46 @@ namespace GroceryPOS
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 46);
             this.SidePanel.TabIndex = 7;
+            // 
+            // InventoryBtn
+            // 
+            this.InventoryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.InventoryBtn.FlatAppearance.BorderSize = 0;
+            this.InventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InventoryBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryBtn.ForeColor = System.Drawing.Color.Gray;
+            this.InventoryBtn.Image = global::GroceryPOS.Properties.Resources.inventory__2_;
+            this.InventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InventoryBtn.Location = new System.Drawing.Point(0, 9);
+            this.InventoryBtn.Name = "InventoryBtn";
+            this.InventoryBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.InventoryBtn.Size = new System.Drawing.Size(193, 48);
+            this.InventoryBtn.TabIndex = 2;
+            this.InventoryBtn.Text = "          Inventory";
+            this.InventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InventoryBtn.UseVisualStyleBackColor = true;
+            this.InventoryBtn.Click += new System.EventHandler(this.InvOrSlsBtn_Click);
+            // 
+            // SalesBtn
+            // 
+            this.SalesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.SalesBtn.FlatAppearance.BorderSize = 0;
+            this.SalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesBtn.ForeColor = System.Drawing.Color.Gray;
+            this.SalesBtn.Image = global::GroceryPOS.Properties.Resources.bill__1_;
+            this.SalesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SalesBtn.Location = new System.Drawing.Point(0, 61);
+            this.SalesBtn.Name = "SalesBtn";
+            this.SalesBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.SalesBtn.Size = new System.Drawing.Size(193, 48);
+            this.SalesBtn.TabIndex = 3;
+            this.SalesBtn.Text = "          Sales";
+            this.SalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SalesBtn.UseVisualStyleBackColor = true;
+            this.SalesBtn.Click += new System.EventHandler(this.InvOrSlsBtn_Click);
             // 
             // stockPanel
             // 
@@ -186,6 +220,17 @@ namespace GroceryPOS
             this.InventoryPanel.Name = "InventoryPanel";
             this.InventoryPanel.Size = new System.Drawing.Size(948, 568);
             this.InventoryPanel.TabIndex = 14;
+            // 
+            // editBtn
+            // 
+            this.editBtn.Image = global::GroceryPOS.Properties.Resources.edit;
+            this.editBtn.Location = new System.Drawing.Point(914, 9);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(24, 24);
+            this.editBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.editBtn.TabIndex = 18;
+            this.editBtn.TabStop = false;
+            this.editBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // label5
             // 
@@ -229,23 +274,22 @@ namespace GroceryPOS
             // 
             // SalesPanel
             // 
-            this.SalesPanel.BackColor = System.Drawing.Color.White;
+            this.SalesPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.SalesPanel.Controls.Add(this.lineChart1);
+            this.SalesPanel.Controls.Add(this.pieChart1);
             this.SalesPanel.Controls.Add(this.panel2);
             this.SalesPanel.Location = new System.Drawing.Point(218, 62);
             this.SalesPanel.Name = "SalesPanel";
             this.SalesPanel.Size = new System.Drawing.Size(948, 568);
             this.SalesPanel.TabIndex = 3;
             // 
-            // label6
+            // pieChart1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 2);
-            this.label6.Name = "label6";
-
-            this.label6.Size = new System.Drawing.Size(89, 31);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Sales ";
+            this.pieChart1.Location = new System.Drawing.Point(54, 9);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(350, 350);
+            this.pieChart1.TabIndex = 2;
+            this.pieChart1.Text = "pieChart1";
             // 
             // panel2
             // 
@@ -258,14 +302,6 @@ namespace GroceryPOS
             this.panel2.Size = new System.Drawing.Size(460, 568);
             this.panel2.TabIndex = 1;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 69);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(437, 499);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -276,94 +312,32 @@ namespace GroceryPOS
             this.label7.TabIndex = 13;
             this.label7.Text = "Sales ID               Date                                                   Sal" +
     "es Total";
-
-            this.label6.Size = new System.Drawing.Size(216, 37);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 69);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(437, 499);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(185, 31);
             this.label6.TabIndex = 0;
             this.label6.Text = "Sales Reports";
             // 
-            // backPictureBox
+            // lineChart1
             // 
-            this.backPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backPictureBox.Image = global::GroceryPOS.Properties.Resources.left;
-            this.backPictureBox.Location = new System.Drawing.Point(13, 9);
-            this.backPictureBox.Name = "backPictureBox";
-            this.backPictureBox.Size = new System.Drawing.Size(24, 24);
-            this.backPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.backPictureBox.TabIndex = 2;
-            this.backPictureBox.TabStop = false;
-            this.backPictureBox.Click += new System.EventHandler(this.backPictureBox_Click);
-            this.backPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BackButton_MouseDown);
-            this.backPictureBox.MouseEnter += new System.EventHandler(this.BackButton_MouseEnter);
-            this.backPictureBox.MouseLeave += new System.EventHandler(this.BackButton_MouseLeave);
-            this.backPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BackPictureBox_MouseUp);
-            // 
-            // closePictureBox
-            // 
-            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closePictureBox.Image = global::GroceryPOS.Properties.Resources.xclose;
-            this.closePictureBox.Location = new System.Drawing.Point(1120, 9);
-            this.closePictureBox.Name = "closePictureBox";
-            this.closePictureBox.Size = new System.Drawing.Size(24, 24);
-            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closePictureBox.TabIndex = 1;
-            this.closePictureBox.TabStop = false;
-            this.closePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
-            this.closePictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseButton_MouseDown);
-            this.closePictureBox.MouseEnter += new System.EventHandler(this.CloseButton_MouseEnter);
-            this.closePictureBox.MouseLeave += new System.EventHandler(this.CloseButton_MouseLeave);
-            this.closePictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ClosePictureBox_MouseUp);
-            // 
-            // InventoryBtn
-            // 
-            this.InventoryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.InventoryBtn.FlatAppearance.BorderSize = 0;
-            this.InventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InventoryBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryBtn.ForeColor = System.Drawing.Color.Gray;
-            this.InventoryBtn.Image = global::GroceryPOS.Properties.Resources.inventory__2_;
-            this.InventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InventoryBtn.Location = new System.Drawing.Point(0, 9);
-            this.InventoryBtn.Name = "InventoryBtn";
-            this.InventoryBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.InventoryBtn.Size = new System.Drawing.Size(193, 48);
-            this.InventoryBtn.TabIndex = 2;
-            this.InventoryBtn.Text = "          Inventory";
-            this.InventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InventoryBtn.UseVisualStyleBackColor = true;
-            this.InventoryBtn.Click += new System.EventHandler(this.InvOrSlsBtn_Click);
-            // 
-            // SalesBtn
-            // 
-            this.SalesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.SalesBtn.FlatAppearance.BorderSize = 0;
-            this.SalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesBtn.ForeColor = System.Drawing.Color.Gray;
-            this.SalesBtn.Image = global::GroceryPOS.Properties.Resources.bill__1_;
-            this.SalesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SalesBtn.Location = new System.Drawing.Point(0, 61);
-            this.SalesBtn.Name = "SalesBtn";
-            this.SalesBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.SalesBtn.Size = new System.Drawing.Size(193, 48);
-            this.SalesBtn.TabIndex = 3;
-            this.SalesBtn.Text = "          Sales";
-            this.SalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SalesBtn.UseVisualStyleBackColor = true;
-            this.SalesBtn.Click += new System.EventHandler(this.InvOrSlsBtn_Click);
-            // 
-            // editBtn
-            // 
-            this.editBtn.Image = global::GroceryPOS.Properties.Resources.edit;
-            this.editBtn.Location = new System.Drawing.Point(914, 9);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(24, 24);
-            this.editBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.editBtn.TabIndex = 18;
-            this.editBtn.TabStop = false;
-            this.editBtn.Click += new System.EventHandler(this.EditBtn_Click);
-
+            this.lineChart1.Location = new System.Drawing.Point(8, 365);
+            this.lineChart1.Name = "lineChart1";
+            this.lineChart1.Size = new System.Drawing.Size(472, 200);
+            this.lineChart1.TabIndex = 3;
+            this.lineChart1.Text = "cartesianChart1";
             // 
             // Admin
             // 
@@ -380,19 +354,15 @@ namespace GroceryPOS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
             this.dockertop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.InventoryPanel.ResumeLayout(false);
             this.InventoryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editBtn)).EndInit();
             this.SalesPanel.ResumeLayout(false);
-
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-
-            this.SalesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editBtn)).EndInit();
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +390,7 @@ namespace GroceryPOS
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label7;
+        private LiveCharts.WinForms.PieChart pieChart1;
+        private LiveCharts.WinForms.CartesianChart lineChart1;
     }
 }

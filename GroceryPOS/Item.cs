@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GroceryPOS
 {
-    internal class Item
+    public class Item
     {
         public Image Image { get; set; }
 

@@ -24,39 +24,6 @@ namespace GroceryPOS
             query = "SELECT\r\n    I.item_id,\r\n    I.item_name,\r\n    I.item_price,\r\n    I.item_unit,\r\n    I.item_stocks,\r\n    C.category_name AS category_description,\r\n    I.item_description\r\nFROM Items I\r\nJOIN Inventory C ON I.category_id = C.category_id";
         }
 
-        public List<ProductCard> LoadProductsFromDatabase()
-        {
-            List<ProductCard> items = new List<ProductCard>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader()) {
-                        while (reader.Read())
-                        {
-                            ProductCard product = new ProductCard()
-                            {
-                                Name = reader["item_name"].ToString(),
-                                Price = Convert.ToDouble(reader["item_price"]),
-                                SoldBy = reader["item_unit"].ToString(),
-                                Stock = (int)reader["item_stocks"],
-                                Category = reader["category_description"].ToString().ToLower(),
-                                Description = reader["item_description"].ToString()
-                            };
-
-                            product.Image = LoadProductImage(product.Name);
-
-                            items.Add(product);
-                        }
-
-                        return items;
-                    }
-                }
-            }
-        }
-
         public List<Item> LoadItemsFromDatabase()
         {
             List<Item> items = new List<Item>();
@@ -96,8 +63,6 @@ namespace GroceryPOS
             ResourceManager rm = GroceryPOS.Properties.Resources.ResourceManager;
 
             Image img = (Image)rm.GetObject(productName);
-
-            Console.WriteLine(img);
 
             if (img != null) 
             {

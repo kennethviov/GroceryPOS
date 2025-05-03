@@ -21,13 +21,13 @@ namespace GroceryPOS
         {
             InitializeComponent();
 
+            dh = new DataHandler();
+            items = dh.LoadItemsFromDatabase();
+
             cartItems = new List<ProductInCart>();
             productInfo = new ProductInfos();
             cf = new CalculatingFunctions();
-            dh = new DataHandler();
-            admin = new Admin(this);
 
-            products = dh.LoadProductsFromDatabase();
 
             LoadToFlowLayoutPanel();
 
@@ -37,11 +37,13 @@ namespace GroceryPOS
             timer1.Start();
 
             RegionLoad();
+            admin = new Admin(this);
         }
 
-        // TODO: Do not directly pass to product card, use the Item class
         private void LoadToFlowLayoutPanel()
         {
+            StoreToAComponent();
+
             foreach (var product in products)
             {
                 flowLayoutPanel1.Controls.Add(product);
@@ -52,12 +54,30 @@ namespace GroceryPOS
             }
         }
 
+        private void StoreToAComponent()
+        {
+            foreach (var item in items)
+            {
+                ProductCard product = new ProductCard()
+                {
+                    Image = item.Image,
+                    Name = item.Name,
+                    Price = item.Price,
+                    SoldBy = item.SoldBy,
+                    Stock = item.Stock,
+                    Description = item.Description,
+                    Category = item.Category
+                };
+                products.Add(product);
+            }
+        }
+
         private void ProductCard_Click(object sender, EventArgs e)
         {
             if (sender is ProductCard productCard)
             {
 
-                var existingItem = cartItems.FirstOrDefault(item => item.Title == productCard.ProductName);
+                var existingItem = cartItems.FirstOrDefault(item => item.Title == productCard.Name);
                 if (existingItem != null)
                 {
                     existingItem.Quantity++;
@@ -187,10 +207,6 @@ namespace GroceryPOS
 
         private void AdminBtn_Click(object sender, EventArgs e)
         {
-            //if (admin == null || admin.IsDisposed)
-            //{
-            //    admin = new Admin(this);
-            //}
             admin.Show();
             this.Hide();
         }
@@ -268,12 +284,25 @@ namespace GroceryPOS
 
                 if (result == DialogResult.Yes)
                 {
+                    foreach (var ci in cartItems)
+                    {
+                        foreach (var item in items)
+                        {
+                            if (item.Name == ci.Title)
+                            {
+                                item.Stock -= ci.Quantity;
+                            }
+                        }
+                    }
+
                     Receipt rec = new Receipt(cartItems);
                     rec.ShowDialog();
 
                     flowLayoutPanel2.Controls.Clear();
                     cartItems.Clear();
                     UpdateSummary();
+
+                    admin.RefreshInventoryPanel();
                 }
             }
         }
@@ -353,6 +382,7 @@ namespace GroceryPOS
         );
 
         readonly List<ProductInCart> cartItems;
+        public List<Item> items;
         readonly List<ProductCard> products = new List<ProductCard>();
         readonly ProductInfos productInfo;
         readonly CalculatingFunctions cf;

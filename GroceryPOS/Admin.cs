@@ -9,39 +9,30 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveCharts;
+using LiveCharts.WinForms;
+using LiveCharts.Defaults;
+using System.Windows.Forms.DataVisualization.Charting;
+using LiveCharts.Wpf;
 
 namespace GroceryPOS
 {
     public partial class Admin : Form
     {
 
-        readonly List<Item> items;
-        readonly List<DBItem> dbItems = new List<DBItem>();
-        readonly DataHandler dh;
-        readonly MainFrame main;
-
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
-
         public Admin(MainFrame main)
         {
             InitializeComponent();
-            RegionLoad();
-
-            dh = new DataHandler();
-            items = dh.LoadItemsFromDatabase();
-            LoadToInventoryPanel();
 
             SalesPanel.Visible = false;
             this.main = main;
+            items = main.items;
+
+            SetUpPieCHart();
+            SetUpLineChart();
+
+            LoadToInventoryPanel();
+            RegionLoad();
         }
 
         private void LoadToInventoryPanel()
@@ -58,6 +49,9 @@ namespace GroceryPOS
 
         private void StoreToAComponent()
         {
+
+            items = main.items;
+
             foreach (var item in items) 
             {
                 DBItem dbItem = new DBItem()
@@ -74,7 +68,75 @@ namespace GroceryPOS
             }
         }
 
+        public void RefreshInventoryPanel()
+        {
+            stockPanel.Controls.Clear();
+            dbItems.Clear();
+            LoadToInventoryPanel();
+        }
 
+        private void SetUpPieCHart()
+        {
+            var topItems = items.OrderByDescending(i => i.Stock).Take(5).ToList();
+
+            var series = new LiveCharts.SeriesCollection
+            {
+                new PieSeries
+                {
+                    Title = topItems[0].Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(topItems[0].Stock) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = topItems[1].Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(topItems[1].Stock) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = topItems[2].Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(topItems[2].Stock) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = topItems[3].Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(topItems[3].Stock) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = topItems[4].Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(topItems[4].Stock) },
+                    DataLabels = true,
+                    LabelPoint = chartPoint => $"{chartPoint.Y} pcs ({chartPoint.Participation:P})",
+                    Fill = System.Windows.Media.Brushes.YellowGreen
+                },
+            };
+
+            pieChart1.Series = series;
+        }
+
+        private void SetUpLineChart()
+        {
+            var series = new LiveCharts.SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Sales",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(13), new ObservableValue(45), new ObservableValue(89) },
+                    DataLabels = true
+                },
+                new LineSeries
+                {
+                    Title = "Revenue",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(35), new ObservableValue(20), new ObservableValue(100) },
+                    DataLabels = true
+                }
+            };
+            lineChart1.Series = series;
+        }
 
 
         // / This method is used to create rounded corners for the form and its controls
@@ -177,10 +239,26 @@ namespace GroceryPOS
             }
         }
 
-        private void backPictureBox_Click(object sender, EventArgs e)
+        private void BackPictureBox_Click(object sender, EventArgs e)
         {
             main.Show();
             this.Hide();
         }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
+
+        private List<Item> items;
+        readonly List<DBItem> dbItems = new List<DBItem>();
+        readonly MainFrame main;
+
     }
 }

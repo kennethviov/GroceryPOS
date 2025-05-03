@@ -11,6 +11,17 @@ namespace GroceryPOS
     internal class CalculatingFunctions
     {
 
+        public double[] Top5Items(List<Item> items)
+        {
+            double[] top5 = new double[5];
+            var topItems = items.OrderByDescending(i => i.Stock).Take(5).ToList();
+            for (int i = 0; i < topItems.Count; i++)
+            {
+                top5[i] = topItems[i].Stock;
+            }
+            return top5;
+        }
+
         public double CalculateSubtotal(List<ProductInCart> cartItems)
         {
             double subtotal = 0;
