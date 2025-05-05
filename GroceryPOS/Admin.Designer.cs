@@ -47,12 +47,12 @@ namespace GroceryPOS
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SalesPanel = new System.Windows.Forms.Panel();
+            this.lineChart1 = new LiveCharts.WinForms.CartesianChart();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.salesReportPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.lineChart1 = new LiveCharts.WinForms.CartesianChart();
             this.dockertop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
@@ -283,6 +283,14 @@ namespace GroceryPOS
             this.SalesPanel.Size = new System.Drawing.Size(948, 568);
             this.SalesPanel.TabIndex = 3;
             // 
+            // lineChart1
+            // 
+            this.lineChart1.Location = new System.Drawing.Point(8, 365);
+            this.lineChart1.Name = "lineChart1";
+            this.lineChart1.Size = new System.Drawing.Size(472, 200);
+            this.lineChart1.TabIndex = 3;
+            this.lineChart1.Text = "cartesianChart1";
+            // 
             // pieChart1
             // 
             this.pieChart1.Location = new System.Drawing.Point(54, 9);
@@ -295,7 +303,7 @@ namespace GroceryPOS
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.salesReportPanel);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(488, 0);
             this.panel2.Name = "panel2";
@@ -313,13 +321,13 @@ namespace GroceryPOS
             this.label7.Text = "Sales ID               Date                                                   Sal" +
     "es Total";
             // 
-            // flowLayoutPanel1
+            // salesReportPanel
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 69);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(437, 499);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.salesReportPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.salesReportPanel.Location = new System.Drawing.Point(11, 69);
+            this.salesReportPanel.Name = "salesReportPanel";
+            this.salesReportPanel.Size = new System.Drawing.Size(437, 499);
+            this.salesReportPanel.TabIndex = 0;
             // 
             // label6
             // 
@@ -330,14 +338,6 @@ namespace GroceryPOS
             this.label6.Size = new System.Drawing.Size(185, 31);
             this.label6.TabIndex = 0;
             this.label6.Text = "Sales Reports";
-            // 
-            // lineChart1
-            // 
-            this.lineChart1.Location = new System.Drawing.Point(8, 365);
-            this.lineChart1.Name = "lineChart1";
-            this.lineChart1.Size = new System.Drawing.Size(472, 200);
-            this.lineChart1.TabIndex = 3;
-            this.lineChart1.Text = "cartesianChart1";
             // 
             // Admin
             // 
@@ -388,7 +388,7 @@ namespace GroceryPOS
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox editBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel salesReportPanel;
         private System.Windows.Forms.Label label7;
         private LiveCharts.WinForms.PieChart pieChart1;
         private LiveCharts.WinForms.CartesianChart lineChart1;

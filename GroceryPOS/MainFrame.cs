@@ -295,14 +295,20 @@ namespace GroceryPOS
                         }
                     }
 
+
+                    dh.AddNewSale(double.Parse(totalLabel.Text.ToString().Substring(1).Replace(",", "")));
+                    admin.RefreshSalesReportPanel();
+                    admin.RefreshInventoryPanel();
+
                     Receipt rec = new Receipt(cartItems);
                     rec.ShowDialog();
 
+                    flowLayoutPanel1.Controls.Clear();
                     flowLayoutPanel2.Controls.Clear();
                     cartItems.Clear();
+                    products.Clear();
                     UpdateSummary();
-
-                    admin.RefreshInventoryPanel();
+                    LoadToFlowLayoutPanel();
                 }
             }
         }

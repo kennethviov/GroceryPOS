@@ -25,6 +25,7 @@ namespace GroceryPOS
             InitializeComponent();
 
             SalesPanel.Visible = false;
+            dh = new DataHandler();
             this.main = main;
             items = main.items;
 
@@ -32,6 +33,7 @@ namespace GroceryPOS
             SetUpLineChart();
 
             LoadToInventoryPanel();
+            LoadSalesReport();
             RegionLoad();
         }
 
@@ -68,11 +70,29 @@ namespace GroceryPOS
             }
         }
 
+        private void LoadSalesReport()
+        {
+
+            salesReports = dh.LoadSalesReport();
+
+            foreach (var sales in salesReports)
+            {
+                salesReportPanel.Controls.Add((SalesReport)sales);
+            }
+        }
+
         public void RefreshInventoryPanel()
         {
             stockPanel.Controls.Clear();
             dbItems.Clear();
             LoadToInventoryPanel();
+        }
+
+        public void RefreshSalesReportPanel()
+        {
+            salesReportPanel.Controls.Clear();
+            salesReports.Clear();
+            LoadSalesReport();
         }
 
         private void SetUpPieCHart()
@@ -257,7 +277,9 @@ namespace GroceryPOS
         );
 
         private List<Item> items;
+        private List<SalesReport> salesReports;
         readonly List<DBItem> dbItems = new List<DBItem>();
+        readonly DataHandler dh;
         readonly MainFrame main;
 
     }

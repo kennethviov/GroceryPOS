@@ -231,6 +231,12 @@
     <Compile Include="Components\DBItem.Designer.cs">
       <DependentUpon>DBItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\SalesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SalesReport.Designer.cs">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionInstance.cs" />
     <Compile Include="Admin.cs">
       <SubType>Form</SubType>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SalesReport.resx">
+      <DependentUpon>SalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
